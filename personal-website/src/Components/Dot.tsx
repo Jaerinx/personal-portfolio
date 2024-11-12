@@ -1,4 +1,21 @@
+import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+
+const dotsMotion = {
+  initial: {
+    opacity: 0,
+    y: 200
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.1,
+      type: "spring"
+    }
+  }
+};
+
 export default function Dot({
   i,
   mouse_x,
@@ -13,24 +30,24 @@ export default function Dot({
 
   useEffect(() => {
     if (componentRef.current) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const rect = componentRef.current.getBoundingClientRect();
       setDistance(
         Math.floor(((mouse_x - rect.x) ** 2 + (mouse_y - rect.y) ** 2) ** 0.5)
       );
       console.log(distance);
     }
-  });
+  }, [mouse_x, mouse_y, distance]);
 
   return (
-    <div
+    <motion.div
       ref={componentRef}
       key={i}
+      variants={dotsMotion}
       className={`text-center aspect-square opacity-[0.05] rounded-full w-10 duration-500 ${
         distance < 200 || (distance > 1000 && distance < 1200)
           ? "bg-white border-2"
           : ""
       }`}
-    ></div>
+    ></motion.div>
   );
 }
