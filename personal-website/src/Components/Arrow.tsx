@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import arrow from "/Arrow.svg";
+import { Link } from "react-router-dom";
 const arrowVariants = {
   initial: {
     y: "100vh"
@@ -23,16 +24,18 @@ const arrowVariants = {
     }
   }
 };
-export default function Arrow() {
+export default function Arrow({ url }: { url: string }) {
   return (
-    <motion.img
-      src={arrow}
-      alt=""
-      variants={arrowVariants}
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      className="w-[2%] absolute bottom-4 left-1/2 cursor-pointer"
-    />
+    <Link to={url}>
+      <motion.img
+        src={arrow}
+        alt=""
+        variants={arrowVariants}
+        initial="initial"
+        animate="animate"
+        whileHover="hover"
+        className="w-[2%] absolute bottom-4 left-1/2 cursor-pointer"
+      />
+    </Link>
   );
 }
