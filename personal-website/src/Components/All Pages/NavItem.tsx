@@ -1,0 +1,52 @@
+import { motion } from "framer-motion";
+import { navVariants, navShadowVariants } from "../../Framer-Variants/variants";
+import { NavLink, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+const buttonStyle = `mx-1 border-2 border-[#41ff00] rounded-lg px-1 opacity-50 text-[#41ff00] text-2xl duration-100`;
+export default function NavItem({
+  content,
+  delay,
+  location
+}: {
+  content: string;
+  delay: number;
+  location: string;
+}) {
+  const url = useLocation();
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      if (url.pathname === location) setActive(true);
+    }, 1000);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return (
+    <motion.div
+      variants={navVariants}
+      initial="initial"
+      animate={active ? "hover" : "animate"}
+      transition={{
+        delay: delay,
+        type: "spring",
+        stiffness: 300,
+        damping: 25
+      }}
+      whileHover="hover"
+    >
+      <NavLink
+        to={location}
+        className={buttonStyle}
+        onClick={(e) => {
+          if (active) e.preventDefault();
+        }}
+      >
+        {content}
+      </NavLink>
+      <motion.div
+        className={buttonStyle + ` w-[78%] border-[#238a00]`}
+        variants={navShadowVariants}
+      ></motion.div>
+    </motion.div>
+  );
+}

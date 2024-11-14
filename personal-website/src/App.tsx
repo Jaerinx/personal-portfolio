@@ -1,8 +1,8 @@
 import "./Styles/App.css";
-import FirstPage from "./Components/FirstPage";
-import Content from "./Components/Content";
+import FirstPage from "./Components/Landing Page/FirstPage";
+import Content from "./Components/Contents/Content";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import Nav from "./Components/Nav";
+import Nav from "./Components/All Pages/Nav";
 import { AnimatePresence } from "framer-motion";
 function App() {
   const location = useLocation();
@@ -10,11 +10,11 @@ function App() {
     <>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route path="/" element={<FirstPage />} />
           <Route element={<Nav />}>
+            <Route path="/" element={<FirstPage />} />
             <Route path="/content" element={<Content />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AnimatePresence>
     </>

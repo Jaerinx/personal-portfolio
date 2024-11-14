@@ -7,7 +7,7 @@ const dotsMotion = {
     y: 200
   },
   animate: {
-    opacity: 1,
+    opacity: 0.5,
     y: 0,
     transition: {
       duration: 0.1,
@@ -43,9 +43,9 @@ export default function Dot({
       ref={componentRef}
       key={i}
       variants={dotsMotion}
-      className={`text-center aspect-square opacity-[0.05] rounded-full w-10 duration-500 ${
+      className={`text-center aspect-square opacity-[0.05] rounded-full w-10 duration-500 z-[-1]  ${
         distance < 200 || (distance > 1000 && distance < 1200)
-          ? "bg-white border-2"
+          ? "bg-[#41ff00]"
           : ""
       }`}
     ></motion.div>

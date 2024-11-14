@@ -34,7 +34,7 @@ export default function Arrow({ url }: { url: string }) {
         initial="initial"
         animate="animate"
         whileHover="hover"
-        className="w-[2%] absolute bottom-4 left-1/2 cursor-pointer"
+        className="w-[2%] absolute bottom-20 left-1/2 cursor-pointer"
       />
     </Link>
   );
