@@ -36,3 +36,42 @@ export const navShadowVariants = {
     }
   }
 };
+
+export const contentVariants = {
+  initial: {
+    opacity: 0
+  },
+  animate: {
+    opacity: 1
+  }
+};
+
+export const barVariants = {
+  initial: {
+    height: 0,
+    overflow: "hidden",
+    transition: {
+      duration: 0.1
+    }
+  },
+  animate: {
+    height: [0, "7rem"],
+    transition: {
+      duration: 0.1
+    }
+  }
+};
+
+export const textVariants = {
+  initial: {
+    width: 0,
+    overflow: "hidden"
+  },
+  animate: {
+    width: "100%",
+    overflow: "hidden",
+    transition: {
+      duration: 0.5
+    }
+  }
+};

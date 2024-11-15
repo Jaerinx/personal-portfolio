@@ -52,15 +52,10 @@ export default function FirstPage() {
     <>
       <motion.div
         className="min-w-screen min-h-screen  flex justify-start m-0 p-[5rem] z-0"
-        exit={{ y: "-100vh" }}
-        initial={{ y: "100vh" }}
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
         animate={{
-          y: 0,
-          transition: {
-            type: "spring",
-            damping: 22,
-            stiffness: 200
-          }
+          opacity: 1
         }}
       >
         <div className="max-h-fit">
@@ -78,24 +73,26 @@ export default function FirstPage() {
           />
 
           {doneTyping && (
-            <div className="absolute left-0 right-0 top-0 bottom-0 m-auto max-w-screen max-h-screen overflow-hidden p-[4rem] ">
-              <motion.div
-                className="grid grid-rows-[repeat(15,auto)] grid-cols-[repeat(20,auto)] gap-7 max-w-full max-h-full overflow-hidden"
-                variants={container}
-                initial="initial"
-                animate="animate"
-              >
-                {Array.from({ length: 300 }, (_, index) => (
-                  <Dot
-                    i={index}
-                    key={index}
-                    mouse_x={mousePosition.x}
-                    mouse_y={mousePosition.y}
-                  />
-                ))}
-              </motion.div>
+            <>
+              <div className="absolute left-0 right-0 top-0 bottom-0 m-auto max-w-screen max-h-screen overflow-hidden p-[4rem] z-[-1]">
+                <motion.div
+                  className="grid grid-rows-[repeat(15,auto)] grid-cols-[repeat(20,auto)] gap-7 max-w-full max-h-full overflow-hidden"
+                  variants={container}
+                  initial="initial"
+                  animate="animate"
+                >
+                  {Array.from({ length: 300 }, (_, index) => (
+                    <Dot
+                      i={index}
+                      key={index}
+                      mouse_x={mousePosition.x}
+                      mouse_y={mousePosition.y}
+                    />
+                  ))}
+                </motion.div>
+              </div>
               <Arrow url="/content" />
-            </div>
+            </>
           )}
         </div>
       </motion.div>

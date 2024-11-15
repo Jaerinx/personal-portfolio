@@ -43,10 +43,8 @@ export default function Dot({
       ref={componentRef}
       key={i}
       variants={dotsMotion}
-      className={`text-center aspect-square opacity-[0.05] rounded-full w-10 duration-500 z-[-1]  ${
-        distance < 200 || (distance > 1000 && distance < 1200)
-          ? "bg-[#41ff00]"
-          : ""
+      className={`text-center aspect-square opacity-[0.05] rounded-full w-10 duration-200 z-[-1]  ${
+        distance > 300 && distance < 500 ? "bg-[#41ff00]" : ""
       }`}
     ></motion.div>
   );
