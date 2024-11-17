@@ -19,11 +19,13 @@ const dotsMotion = {
 export default function Dot({
   i,
   mouse_x,
-  mouse_y
+  mouse_y,
+  windowWidth
 }: {
   i: number;
   mouse_x: number;
   mouse_y: number;
+  windowWidth: number;
 }) {
   const [distance, setDistance] = useState(0);
   const componentRef = useRef<HTMLDivElement>(null);
@@ -44,7 +46,9 @@ export default function Dot({
       key={i}
       variants={dotsMotion}
       className={`text-center aspect-square opacity-[0.05] rounded-full w-10 duration-200 z-[-1]  ${
-        distance > 300 && distance < 500 ? "bg-[#41ff00]" : ""
+        distance > windowWidth * 0.1 && distance < windowWidth * 0.2
+          ? "bg-[#41ff00]"
+          : ""
       }`}
     ></motion.div>
   );

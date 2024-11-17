@@ -5,6 +5,7 @@ import Dot from "./Dot";
 import useMousePosition from "../../Hooks/MouseTracker";
 import { motion } from "framer-motion";
 import Arrow from "../All Pages/Arrow";
+import useWindowDimensions from "../../Hooks/WindowDimension";
 const container = {
   initial: {
     opacity: 0
@@ -21,7 +22,7 @@ const container = {
 export default function FirstPage() {
   const [doneTyping, setDoneTyping] = useState(false);
   const mousePosition = useMousePosition();
-
+  const { width } = useWindowDimensions();
   const sequence = [
     "Hi.",
     2000,
@@ -87,6 +88,7 @@ export default function FirstPage() {
                       key={index}
                       mouse_x={mousePosition.x}
                       mouse_y={mousePosition.y}
+                      windowWidth={width}
                     />
                   ))}
                 </motion.div>
