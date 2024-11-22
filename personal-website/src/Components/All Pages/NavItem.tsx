@@ -18,9 +18,10 @@ export default function NavItem({
   useEffect(() => {
     setTimeout(() => {
       if (url.pathname === location) setActive(true);
+      else setActive(false);
     }, 1000);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url]);
   return (
     <motion.div
       variants={navVariants}

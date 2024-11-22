@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Error() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    setTimeout(() => {
-      navigate("/");
-    }, 10000);
-  });
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate("/");
+  //   }, 10000);
+  // });
   return (
     <TypeAnimation
       sequence={["", 2000, ".", 1000, "..", 1000, "...", 1000]}

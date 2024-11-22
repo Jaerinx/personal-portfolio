@@ -2,7 +2,7 @@ import { useState } from "react";
 import power from "/power.svg";
 import LittleGuy from "./LittleGuy";
 import { AnimatePresence, motion } from "framer-motion";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const powerVariants = {
   initial: {
@@ -19,8 +19,16 @@ const powerVariants = {
   }
 };
 export default function Computer() {
-  const [hover, setHover] = useState(false);
+  const [buttonHover, setbuttonHover] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+  const clickButton = () => {
+    setbuttonHover(true);
+    setTimeout(() => {
+      setbuttonHover(false);
+      navigate("/");
+    }, 500);
+  };
   return (
     <>
       <div className="absolute w-screen h-full ">
@@ -30,23 +38,24 @@ export default function Computer() {
         <motion.div
           className="bg-dark_beige absolute bottom-[0.5rem] left-1/2 w-[3rem] ml-[-1.5rem] rounded-full z-2"
           onMouseEnter={() => {
-            setHover(true);
+            setbuttonHover(true);
           }}
           onMouseLeave={() => {
-            setHover(false);
+            setbuttonHover(false);
           }}
           onClick={() => {
+            setbuttonHover(false);
             navigate("/off");
           }}
           variants={powerVariants}
-          animate={hover ? "animate" : ""}
+          animate={buttonHover ? "animate" : ""}
         >
           <img
             src={power}
             alt=""
             style={{
               filter: `${
-                hover
+                buttonHover
                   ? "invert(14%) sepia(97%) saturate(7444%) hue-rotate(0deg) brightness(103%) contrast(105%)"
                   : ""
               } `,
@@ -54,7 +63,11 @@ export default function Computer() {
             }}
           />
         </motion.div>
-        <AnimatePresence mode="wait">{hover && <LittleGuy />}</AnimatePresence>
+        <AnimatePresence mode="wait">
+          {(buttonHover || location.pathname === "/off") && (
+            <LittleGuy clickButton={clickButton} />
+          )}
+        </AnimatePresence>
       </div>
       <Outlet />
     </>

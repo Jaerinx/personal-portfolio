@@ -4,15 +4,14 @@ import Content from "./Components/Contents/Content";
 import Error from "./Components/Error/Error";
 import Computer from "./Components/All Pages/Computer";
 import Resume from "./Components/Resume/Resume";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./Components/All Pages/Nav";
 import { AnimatePresence } from "framer-motion";
 function App() {
-  const location = useLocation();
   return (
     <>
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.key}>
+        <Routes>
           <Route element={<Computer />}>
             <Route element={<Nav />}>
               <Route path="" element={<FirstPage />} />
