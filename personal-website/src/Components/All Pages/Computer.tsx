@@ -32,11 +32,11 @@ export default function Computer() {
   return (
     <>
       <div className="absolute w-screen h-full ">
-        <div className=" absolute w-full min-h-full border-[4rem] border-[#F3EFE0] m-0 rounded-lg z-[-2]"></div>
-        <div className=" absolute w-[calc(100vw-2.5rem)] h-[calc(100vh-2rem)] rounded-lg border-[0.5rem] border-[#c8c3b4] m-[1rem] z-[-1]"></div>
-        <div className="bg-shadow_beige absolute bottom-[0.5rem] left-1/2 w-[3rem] ml-[-1.5rem] rounded-full translate-y-1 h-[3rem] z-1"></div>
+        <div className=" absolute w-full min-h-full border-[2.5vw] border-beige m-0 rounded-lg z-[-2]"></div>
+        <div className=" absolute w-[calc(98vw)] h-[calc(100vh-2vw)] rounded-lg border-[0.5rem] border-[#c8c3b4] m-[1vw] z-[-1]"></div>
+        <div className="bg-shadow_beige absolute bottom-[0.5rem] left-1/2 w-[2vw] ml-[-1.5rem] rounded-full translate-y-1 h-[2vw] z-1"></div>
         <motion.div
-          className="bg-dark_beige absolute bottom-[0.5rem] left-1/2 w-[3rem] ml-[-1.5rem] rounded-full z-2"
+          className="bg-dark_beige absolute bottom-[0.5rem] left-1/2 w-[2vw] ml-[-1.5rem] rounded-full z-2"
           onMouseEnter={() => {
             setbuttonHover(true);
           }}
