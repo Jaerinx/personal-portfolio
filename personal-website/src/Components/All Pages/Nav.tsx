@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <>
       <motion.div
-        className=" fixed top-0 h-[20%] w-screen m-0 flex justify-end content-center p-[4.5rem] z-50 pr-[6rem]"
+        className=" fixed top-0 h-[10%] w-screen m-0 flex justify-end content-center p-[3.5vw] z-50 pr-[4vw]"
         exit={{ y: "-100vh" }}
       >
         <NavItem content="Home" delay={0.1} location="/" />
