@@ -1,19 +1,35 @@
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 import { contentVariants } from "../../Framer-Variants/variants";
-import { ReactNode } from 'react';
+import { Children, ReactNode } from "react";
 
-
-export default function AnimationContainer({children,delay=0}:{children:ReactNode, delay?:number}){
-    return(
-        <motion.div
-      className="flex justify-center items-center z-0"
+export default function AnimationContainer({
+  children,
+  delay = 0,
+  className=""
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?:string
+}) {
+  const arrayChildren = Children.toArray(children);
+  console.log(arrayChildren.length)
+  return (
+    <motion.div
+      className={className}
       variants={contentVariants}
       initial="initial"
-      animate="animate" 
-      transition={{delay:delay}}
+      animate="animate"
+      transition={{ delay: delay, staggerChildren:0.2}}
       exit={{ opacity: 0 }}
-    >   
-        {children}
+    >
+      {arrayChildren.length>1?Children.map(arrayChildren,(child,index)=>{
+        return(
+          <motion.div variants={contentVariants} key={index}>
+          {child}
+          </motion.div>
+          
+        )
+      }):children}
     </motion.div>
-    )
+  );
 }

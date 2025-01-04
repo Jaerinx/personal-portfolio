@@ -3,7 +3,7 @@ import { navVariants, navShadowVariants } from "../../Framer-Variants/variants";
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const buttonStyle = `mx-1 border-2 border-[#41ff00] rounded-lg px-1 opacity-50 text-[#41ff00] text-2xl duration-100`;
+const buttonStyle = `mx-1 border-2 border-dark_green rounded-lg px-1 opacity-50 text-dark_green text-2xl duration-100`;
 export default function NavItem({
   content,
   delay,
@@ -45,7 +45,7 @@ export default function NavItem({
         {content}
       </NavLink>
       <motion.div
-        className={buttonStyle + ` w-[78%] border-[#238a00]`}
+        className={buttonStyle + ` w-[78%] border-dark_green`}
         variants={navShadowVariants}
       ></motion.div>
     </motion.div>

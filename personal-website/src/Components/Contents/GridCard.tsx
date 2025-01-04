@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { ReactNode, useRef } from "react";
 // import { useEffect, useRef } from "react";
 
 export default function GridCard({
@@ -7,9 +8,11 @@ export default function GridCard({
   delay
 }: {
   title: string;
-  contents: Array<string>;
+  contents: Array<string> | Array<ReactNode>;
   delay: number;
 }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   const cardVariants = {
     initial: {
       opacity: 0
@@ -24,18 +27,23 @@ export default function GridCard({
   return (
     <>
       <motion.div
-        className=" border-white border-2 rounded-lg p-5 text-[3vh]"
+        ref={ref}
+        className="border-white border-2 rounded-lg p-5 text-[1.3vw] ml-5 w-auto max-w-[45%] float-start min-h-[40vh] mb-5"
         variants={cardVariants}
+        initial="initial"
+        animate={isInView ? "animate" : "initial"}
+        style={{ marginTop: `${(delay - 0.2) * 40}vh` }}
       >
-        {title}
+        <div className="text-white">{title}</div>
+
         <div className="w-full h-[1px] bg-white"></div>
-        <ul className="list-disc pl-5">
+        <ul className="list-disc pl-5 ">
           {contents.map((content) => {
-            return (
-              <li>
-                <span className="relative left-0">{content}</span>
-              </li>
-            );
+            if (typeof content === "object") {
+              return content;
+            } else {
+              return <li>{content}</li>;
+            }
           })}
         </ul>
       </motion.div>

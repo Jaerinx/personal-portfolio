@@ -40,10 +40,6 @@ export default function FirstPage() {
     2000,
     "My name is Hieu, from Vietnam",
     1000,
-    "My name is Hieu, from Vietnam \nPS C:\\Users\\ADMIN\\Documents\\personal-website>",
-    5000,
-    "My name is Hieu, from Vietnam \nPS C:\\Users\\ADMIN\\Documents\\personal-website> npm run dev",
-    1000,
     () => {
       setDoneTyping(true);
     }

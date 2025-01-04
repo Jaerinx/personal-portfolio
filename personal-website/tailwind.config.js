@@ -7,7 +7,9 @@ export default {
       dark_beige: "#c8c3b4",
       shadow_beige: "#6e664e",
       black: "#000000",
-      white: "#FFFFFF"
+      white: "#FFFFFF",
+      dark_green: "#41ff00",
+      green: "41ff00"
     },
     extend: {}
   },

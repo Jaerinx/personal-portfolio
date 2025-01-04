@@ -11,8 +11,7 @@ export default function Nav() {
       >
         <NavItem content="Home" delay={0.1} location="/" />
         <NavItem content="About me" delay={0.2} location="/content" />
-        <NavItem content="Projects" delay={0.3} location="/" />
-        <NavItem content="Resume" delay={0.4} location="/resume" />
+        <NavItem content="Resume" delay={0.3} location="/resume" />
       </motion.div>
       <Outlet />
     </>
