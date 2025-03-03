@@ -3,11 +3,9 @@ import { ReactNode, useRef } from "react";
 // import { useEffect, useRef } from "react";
 
 export default function GridCard({
-  title,
   contents,
   delay
 }: {
-  title: string;
   contents: Array<string> | Array<ReactNode>;
   delay: number;
 }) {
@@ -28,15 +26,11 @@ export default function GridCard({
     <>
       <motion.div
         ref={ref}
-        className="border-white border-2 rounded-lg p-5 text-[1.3vw] ml-5 w-auto max-w-[45%] float-start min-h-[40vh] mb-5"
+        className=" rounded-lg text-[1.3vw] w-auto float-start mb-5 duration-100"
         variants={cardVariants}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
-        style={{ marginTop: `${(delay - 0.2) * 40}vh` }}
       >
-        <div className="text-white">{title}</div>
-
-        <div className="w-full h-[1px] bg-white"></div>
         <ul className="list-disc pl-5 ">
           {contents.map((content) => {
             if (typeof content === "object") {

@@ -1,16 +1,11 @@
-import { motion } from "framer-motion";
-import { navVariants, navShadowVariants } from "../../Framer-Variants/variants";
 import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const buttonStyle = `mx-1 border-2 border-dark_green rounded-lg px-1 opacity-50 text-dark_green text-2xl duration-100`;
 export default function NavItem({
   content,
-  delay,
   location
 }: {
   content: string;
-  delay: number;
   location: string;
 }) {
   const url = useLocation();
@@ -23,31 +18,20 @@ export default function NavItem({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
   return (
-    <motion.div
-      variants={navVariants}
-      initial="initial"
-      animate={active ? "hover" : "animate"}
-      transition={{
-        delay: delay,
-        type: "spring",
-        stiffness: 300,
-        damping: 25
-      }}
-      whileHover="hover"
-    >
+    <div className="w-max ml-auto">
       <NavLink
         to={location}
-        className={buttonStyle}
+        className=" border-2 border-dark_green rounded-lg px-1  hover:border-white text-4xl duration-100 hover:scale-0"
+        style={{
+          color: active ? "rgb(65 255 0 / var(--tw-text-opacity, 1))" : "white",
+          opacity: active ? 0.5 : 0.8
+        }}
         onClick={(e) => {
           if (active) e.preventDefault();
         }}
       >
         {content}
       </NavLink>
-      <motion.div
-        className={buttonStyle + ` w-[78%] border-dark_green`}
-        variants={navShadowVariants}
-      ></motion.div>
-    </motion.div>
+    </div>
   );
 }
