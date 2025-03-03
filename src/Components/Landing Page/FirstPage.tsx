@@ -48,7 +48,7 @@ export default function FirstPage() {
   return (
     <>
       <motion.div
-        className="min-w-screen min-h-screen  flex justify-start m-0 p-[5rem] z-0"
+        className="min-w-screen min-h-screen  flex justify-start m-0 p-[5rem] z-0 "
         exit={{ opacity: 0 }}
         initial={{ opacity: 0 }}
         animate={{
@@ -56,18 +56,21 @@ export default function FirstPage() {
         }}
       >
         <div className="max-h-fit">
-          <TypeAnimation
-            sequence={sequence}
-            wrapper="h1"
-            speed={25}
-            style={{
-              whiteSpace: "pre-line",
-              fontSize: "3vw",
-              display: "inline-block",
-              maxHeight: "fit-content"
-            }}
-            repeat={0}
-          />
+          <div className="cursor-text">
+            <TypeAnimation
+              sequence={sequence}
+              wrapper="h1"
+              speed={25}
+              style={{
+                whiteSpace: "pre-line",
+                fontSize: "3vw",
+                display: "inline-block",
+                maxHeight: "fit-content",
+                cursor: "url(lime-green/Link Select.cur), pointer"
+              }}
+              repeat={0}
+            />
+          </div>
 
           {doneTyping && (
             <>

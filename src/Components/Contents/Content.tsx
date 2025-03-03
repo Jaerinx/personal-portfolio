@@ -15,7 +15,7 @@ import tesc from "../../Static/contents_statics/TESC.png";
 import tescWebsite from "../../Static/contents_statics/tescucsd.org.png";
 import waveFunction from "../../Static/contents_statics/wavefunction.gif";
 import { useRef } from "react";
-import Hieu from "../../Static/contents_statics/Hieu.jpg";
+import Hieu from "../../Static/contents_statics/Hieu.png";
 const icons = [
   FaReact,
   SiTypescript,
@@ -77,11 +77,11 @@ export default function Content() {
               mounting expectations would be the best motivator to learn how to
               center a div.
             </div>
-            <div className="w-full xl:w-3/4 flex justify-center items-center">
+            <div className="w-full flex justify-center items-center overflow-hidden">
               <img
                 src={Hieu}
                 alt=""
-                className="aspect-square object-[40%_40%] object-cover w-full max-w-[500px] max-h-[80vh] rounded-xl bg-beige"
+                className="aspect-square object-[40%_40%] object-cover w-full max-w-[700px] max-h-[80vh] rounded-xl"
               />
             </div>
             <div className="col-span-2 w-full px-20 cursor-text">
