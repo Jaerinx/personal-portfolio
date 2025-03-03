@@ -3,15 +3,25 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      beige: "#F3EFE0",
-      dark_beige: "#c8c3b4",
-      shadow_beige: "#6e664e",
+      beige: "#b5b2a7",
+      dark_beige: "#8f8b7e",
+      shadow_beige: "#594a37",
       black: "#000000",
-      white: "#FFFFFF",
-      dark_green: "#41ff00",
-      green: "#41ff00"
+      white: "#ebe8ff",
+      dark_green: "#82A05c",
+      green: "#82C05c"
     },
-    extend: {}
+    cursor: {
+      default: "url(/lime-green/Normal Select.cur), default",
+      pointer: "url(lime-green/Link Select.cur), pointer",
+      text: "url(lime-green/Text Select.cur), pointer"
+    },
+    extend: {
+      fontSize: {
+        paragraph: "2rem",
+        header: "4rem"
+      }
+    }
   },
   plugins: []
 };

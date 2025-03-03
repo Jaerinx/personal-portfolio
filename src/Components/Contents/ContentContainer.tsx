@@ -18,12 +18,13 @@ export default function ContentContainer({
 }) {
   return (
     <div
-      className="grid grid-rows-[1fr_auto] border-2 border-white rounded-lg m-5 text-[1.5vw] hover:scale-[0.99] duration-100"
+      className={`grid grid-rows-[max-content_max-content] border-y-2 rounded-2xl border-[#000F2C] my-20 text-paragraph hover:scale-[0.99] duration-100 bg-[#000F2C] ${
+        link ? ` cursor-pointer` : ""
+      }`}
       style={{
         width: width,
         marginRight: right_margin,
-        marginLeft: left_margin,
-        cursor: link ? "pointer" : ""
+        marginLeft: left_margin
       }}
       onClick={() => {
         if (link) {
@@ -31,12 +32,16 @@ export default function ContentContainer({
         }
       }}
     >
-      <div className="border-b-2 border-white">
+      <div
+        className={`border-b-2 border-white w-full mx-auto ${
+          left_margin ? "text-right" : "text-left"
+        }`}
+      >
         <div className="p-2 m-2">
-          <div className="text-white h-fit">{title}</div>
+          <h1 className=" h-fit">{title}</h1>
         </div>
       </div>
-      <div className="m-5 text-white">
+      <div className="p-5  ">
         {children?.toString === null ? <></> : children}
       </div>
     </div>

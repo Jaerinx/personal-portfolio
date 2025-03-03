@@ -6,11 +6,26 @@
   font-family: "DOS";
   src: url("/Perfect DOS VGA 437 Win.ttf");
 }
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/SourceCodePro_VariableFont_wght.ttf");
+}
 :root {
-  font-family: "DOS";
+  font-family: "Source Code Pro";
+  text-align: justify;
+  letter-spacing: -3px;
+  h1 {
+    font-family: "DOS";
+    letter-spacing: -3px;
+    color: #82c05c;
+    font-size: 3rem;
+  }
+  a:link {
+    cursor: url("lime-green/Link Select.cur"), pointer;
+  }
   line-height: 1.5;
   font-weight: 400;
-  color: #41ff00;
+  color: #ebe8ff;
   background-color: #04001c;
 
   /* font-synthesis: none; */
@@ -27,19 +42,11 @@
 
 *::-webkit-scrollbar-track {
   background-color: transparent;
-  border: 2px solid #238a00;
+  border: 2px solid #82c05c;
   border-radius: 0.5rem;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #f3efe0;
-  border: 2px solid #238a00;
+  background-color: #ebe8ff;
   border-radius: 0.5rem;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
 }

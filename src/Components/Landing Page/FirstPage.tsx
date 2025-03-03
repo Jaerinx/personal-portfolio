@@ -37,9 +37,9 @@ export default function FirstPage() {
     "My na",
     50,
     "My name is Hieu.",
-    2000,
-    "My name is Hieu, from Vietnam",
     1000,
+    "My name is Hieu, from Vietnam",
+    500,
     () => {
       setDoneTyping(true);
     }
@@ -58,7 +58,7 @@ export default function FirstPage() {
         <div className="max-h-fit">
           <TypeAnimation
             sequence={sequence}
-            wrapper="div"
+            wrapper="h1"
             speed={25}
             style={{
               whiteSpace: "pre-line",

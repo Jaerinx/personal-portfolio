@@ -33,7 +33,7 @@ const information = [
       <div className="grid grid-cols-4 w-full gap-10">
         {icons.map((Icon) => {
           return (
-            <Icon className="text-[7vw] bg-inherit text-white hover:text-dark_beige" />
+            <Icon className="text-[10rem] bg-inherit text-white hover:text-dark_beige" />
           );
         })}
       </div>
@@ -63,41 +63,40 @@ const information = [
 export default function Content() {
   const wave = useRef<HTMLImageElement>(null);
   return (
-    <AnimationContainer className="flex items-center z-0 pl-[4vw] [scroll-behavior:smooth]">
-      <div className="absolute top-[3vw] grid grid-cols-1 grid-rows-[1fr_auto] w-[calc(85vw)] ">
-        <div className="h-[calc(2vw+5rem)] border-white border-2 rounded-t-lg p-5 cursor-pointer z-0 overflow-hidden ">
-          <ProfessionsCycle />
-        </div>
-        <AnimationContainer className=" h-[calc(100vh-13vw)] border-white border-2 border-t-0 rounded-b-lg p-5 overflow-y-auto">
-          <div className="w-full grid grid-cols-[0.4fr_0.6fr] gap-10">
-            <ContentContainer width="100%">
-              Hi! My name is Hieu. I love making stuff and learning, and
-              learning to make stuff. My journey into web development began in
-              2017 when my club needed a website built. And with neither any
-              competition nor adequate experience, I stepped up. Who knew having
-              a deadline and..expectations would be the best motivator to learn.
-            </ContentContainer>
-            <div className=" w-full flex ">
+    <AnimationContainer className="flex items-center z-0 pl-[3.4rem] cursor-default">
+      <div className="absolute top-[4rem] grid grid-cols-1 grid-rows-[1fr_auto] w-[calc(100vw-7.8rem)] ">
+        <ProfessionsCycle />
+        <AnimationContainer className=" h-[calc(100vh-15rem)] border-t-0 rounded-b-lg p-0 lg:p-5 overflow-y-auto">
+          <div className="w-full lg:w-3/4 grid grid-cols-[0.9fr_1.1fr] gap-10 text-white text-paragraph mx-auto ">
+            <div className="px-20 cursor-text">
+              Hi! My name is Hieu. Welcome to my corner of the internet. I love
+              making stuff and learning, and learning to make stuff. My journey
+              into web development began in 2017 when my club needed a website
+              built, and with neither any alternate options nor adequate
+              experience, I stepped up. Who knew having a deadline and...
+              mounting expectations would be the best motivator to learn how to
+              center a div.
+            </div>
+            <div className="w-full xl:w-3/4 flex justify-center items-center">
               <img
                 src={Hieu}
                 alt=""
-                className="aspect-square object-cover w-1/2 border-white border-2 p-5 rounded-lg"
+                className="aspect-square object-[40%_40%] object-cover w-full max-w-[500px] max-h-[80vh] rounded-xl bg-beige"
               />
             </div>
+            <div className="col-span-2 w-full px-20 cursor-text">
+              Ever since, my interest in various subjects and fields has never
+              ended. From genetic algorithms, to wave function collapse, to
+              dynamic and interactive web apps, I have been and will forever be
+              looking to learn something new.
+            </div>
           </div>
-
-          <ContentContainer width="90%">
-            Ever since, my interest in various subjects and fields has never
-            ended. From genetic algorithms, to wave function collapse, to
-            dynamic and interactive web apps, I have been and will forever be
-            thirsting to learn something new. Some very quick info about me:
-          </ContentContainer>
 
           {/* Quickfire info */}
 
           <div className="w-full h-[50vh] flex items-center flex-col justify-center">
             <div className="w-full h-1 bg-white mt-10"></div>
-            <h1 className="text-[2vw] m-5">Quickfire Info</h1>
+            <h1 className="text-header m-5 cursor-text">Some Info about me</h1>
             <div className="w-full h-1 bg-white mb-10"></div>
           </div>
 
@@ -116,7 +115,7 @@ export default function Content() {
 
           <div className="w-full h-[50vh] flex items-center flex-col justify-center">
             <div className="w-full h-1 bg-white mt-10"></div>
-            <h1 className="text-[2vw] m-5">Projects</h1>
+            <h1 className="text-header m-5 cursor-text">Projects</h1>
             <div className="w-full h-1 bg-white mb-10"></div>
           </div>
           <ContentContainer
@@ -126,25 +125,23 @@ export default function Content() {
             left_margin="auto"
           >
             <div className="grid grid-cols-[0.6fr_0.4fr]">
-              <ul className="ml-5 list-disc text-white">
-                <li className="text-white">
-                  HTML,CSS, TypeScript, React.JS, Tailwind, Supabase, PostgreSQL
+              <ul className=" list-disc text-white p-5">
+                <li className="text-white ">
+                  Leveraged Vite HMR, Lazy loading strategies and SEO
+                  optimization strategies to half LCP load times
                 </li>
-
-                <li>
-                  <a
-                    href="https://tescucsd.org/"
-                    className="hover:text-dark_beige "
-                  >
-                    https://tescucsd.org/
-                  </a>
+                <li className="text-white ">
+                  Utilised Git version control to streamline team operation
+                </li>
+                <li className="text-white ">
+                  Hover on the image for a surprise :) →
                 </li>
               </ul>
               <div className="aspect-square overflow-y-hidden relative group rounded-lg">
                 <img
                   src={tescWebsite}
                   alt=""
-                  className="absolute hover:translate-y-[-45%]  hover:filter-none [filter:grayscale(100%)] duration-1000 "
+                  className="absolute hover:translate-y-[-45%] rounded-xl hover:filter-none [filter:grayscale(100%)] duration-1000 "
                 />
               </div>
             </div>
@@ -155,24 +152,21 @@ export default function Content() {
             link="https://ecocoin-5ecb6.web.app/"
           >
             <div className="grid grid-cols-2">
-              <ul className="ml-5 list-disc text-white">
-                <li className="text-white">
-                  HTML,CSS, TypeScript, React.JS, Firestore, Firestore auth
+              <ul className="ml-5 list-disc text-white p-5">
+                <li className="text-white ">
+                  User coupon management system complete with admin and user
+                  side utilisiing Firestore database and Firebase Auth to secure
+                  user data
                 </li>
-
-                <li>
-                  <a
-                    href="https://ecocoin-5ecb6.web.app/"
-                    className="hover:text-dark_beige "
-                  >
-                    https://ecocoin-5ecb6.web.app/
-                  </a>
+                <li className="text-white ">
+                  Developed in cooperation with school vice principal to improve
+                  plastic bottle recycling program
                 </li>
               </ul>
               <img
                 src={ecocoins}
                 alt=""
-                className="hover:filter-none [filter:grayscale(100%)] duration-1000"
+                className="hover:filter-none [filter:grayscale(100%)] duration-1000 rounded-xl"
               />
             </div>
           </ContentContainer>
@@ -182,9 +176,9 @@ export default function Content() {
             width="75%"
             title="2-D TERRAIN GENERATOR AND PATH-FINDING SIMULATOR | Research Project | 2023"
           >
-            <ul className="ml-5 list-disc">
-              <li className="text-white">Python</li>
-              <li>procedural 2-D terrain generator</li>
+            <ul className="ml-5 list-disc p-5 ">
+              <li className="text-white ">Python</li>
+              <li className="">procedural 2-D terrain generator</li>
               <li>Visualises popular algorithms like A*, Dijkstra, BFS, DFS</li>
               <li>
                 Applied reinforced learning algorithms (genetic algorithms) to
@@ -198,20 +192,12 @@ export default function Content() {
             link="https://jaerinx.github.io/2dterrain/"
           >
             <div className="grid grid-cols-[0.7fr_0.3fr]">
-              <ul className="ml-5 list-disc ">
+              <ul className="ml-5 list-disc p-5 ">
                 <li className="text-white">React.JS, NEXT.JS, TailwindCSS</li>
                 <li>
                   interactive visualizer tool for simulating operation of 2-D
                   Wave Function Collapse (WFC) and Model Synthesis for terrain
                   generation
-                </li>
-                <li>
-                  <a
-                    href="https://jaerinx.github.io/2dterrain/"
-                    className="hover:text-dark_beige"
-                  >
-                    https://jaerinx.github.io/2dterrain/
-                  </a>
                 </li>
               </ul>
               <div className="relative">
@@ -219,7 +205,7 @@ export default function Content() {
                   src={terrain}
                   ref={wave}
                   alt=""
-                  className="hover:filter-none [filter:grayscale(100%)] duration-1000 z-0"
+                  className="hover:filter-none [filter:grayscale(100%)] duration-1000 z-0 rounded-xl"
                   onMouseEnter={() => {
                     if (wave.current) {
                       wave.current.src = waveFunction;

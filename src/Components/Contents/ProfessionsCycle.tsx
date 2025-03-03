@@ -6,7 +6,7 @@ const professions = [
   "",
   "student",
   "Math and Data enthusiast",
-  "Front-end Software engineer",
+  "Front-end Software engineer"
 ];
 export default function ProfessionsCycle() {
   const [index, setIndex] = useState(0);
@@ -36,26 +36,28 @@ export default function ProfessionsCycle() {
 
   return (
     <div
-      className="grid grid-cols-[repeat(2,max-content)] grid-rows-1 w-min gap-2 text-[2vw]"
+      className="h-[calc(7rem)] rounded-t-lg p-0 lg:p-5 cursor-pointer z-0 overflow-hidden "
       onClick={click}
     >
-      <div className="w-full flex ">I'm a: </div>
-      <div className="flex">
-        <motion.div
-          variants={barVariants}
-          initial="initial"
-          animate={professions[index].length > 0 ? "animate" : "initial"}
-          className="w-1 bg-[#41ff00] mr-1"
-        />
-        <motion.div
-          variants={textVariants}
-          initial="initial"
-          animate={professions[index].length > 0 ? "animate" : "initial"}
-          className="overflow-hidden text-nowrap text-[3vw] ml-4 flex flex-col-reverse"
-        >
-          {professions[index]}
-        </motion.div>
-      </div>
+      <h1 className="grid grid-cols-[repeat(2,max-content)] grid-rows-1 w-min gap-2 text-header">
+        <div className="w-full flex ">: </div>
+        <div className="flex">
+          <motion.div
+            variants={barVariants}
+            initial="initial"
+            animate={professions[index].length > 0 ? "animate" : "initial"}
+            className="w-1 bg-green mr-1"
+          />
+          <motion.div
+            variants={textVariants}
+            initial="initial"
+            animate={professions[index].length > 0 ? "animate" : "initial"}
+            className="overflow-hidden text-nowrap text-[3vw] ml-4 flex flex-col-reverse"
+          >
+            {professions[index]}
+          </motion.div>
+        </div>
+      </h1>
     </div>
   );
 }
