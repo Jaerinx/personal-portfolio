@@ -10,8 +10,8 @@ export default function Nav() {
         <div
           className="flex bg-[#04001c] border-x-2 rounded-lg justify-end gap-5  border-x-white overflow-x-hidden duration-500 items-center"
           style={{
-            width: active ? "35rem" : "5.5rem",
-            height: active ? "6rem" : "5rem"
+            width: active ? "25rem" : "4rem",
+            height: active ? "5rem" : "4rem",
           }}
         >
           <div className="p-0 m-0 flex gap-5">
@@ -21,15 +21,15 @@ export default function Nav() {
           </div>
 
           <div
-            className="grid grid-row-3 cursor-pointer duration-100 delay-500 h-fit w-fit mr-5"
+            className="grid grid-row-3 cursor-pointer duration-100 delay-500 h-fit w-fit mr-4"
             onClick={() => {
               setActive(!active);
             }}
-            style={{ gap: active ? "0.75rem" : "0.5rem" }}
+            style={{ gap: active ? "0.5rem" : "0.4rem" }}
           >
-            <div className="w-12 h-1 bg-green"></div>
-            <div className="w-12 h-1 bg-green"></div>
-            <div className="w-12 h-1 bg-green"></div>
+            <div className="w-7 h-1 bg-green"></div>
+            <div className="w-7 h-1 bg-green"></div>
+            <div className="w-7 h-1 bg-green"></div>
           </div>
         </div>
       </div>
