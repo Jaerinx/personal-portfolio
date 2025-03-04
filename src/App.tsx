@@ -19,7 +19,6 @@ function App() {
           <Route element={<Computer />}>
             <Route element={<Nav />}>
               <Route path="" element={<Content />} />
-              <Route path="resume" element={<Resume />} />
               <Route path="contact-me" element={<Contact />} />
             </Route>
             <Route path="off" element={<Error />} />

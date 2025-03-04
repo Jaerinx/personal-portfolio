@@ -19,7 +19,9 @@ export default function Nav() {
     <>
       <div className="fixed cursor-default top-0 right-0 w-fit h-fit m-0 flex justify-end content-center md:p-[2.25rem] z-50 md:pr-[1.25rem] xl:p-[3.25rem] p-4">
         <div
-          className="flex rounded-lg justify-end gap-5 overflow-hidden duration-500 items-center h-min p-3"
+          className={`flex rounded-lg justify-start items-end gap-5 flex-col overflow-hidden duration-500 h-min p-3 ${
+            active ? "backdrop-blur" : ""
+          }`}
           onMouseOver={() => {
             setActive(true);
           }}
@@ -27,10 +29,21 @@ export default function Nav() {
             setActive(false);
           }}
           style={{
-            width: active ? "34rem" : "4rem"
+            height: active ? (matchmedia ? "24rem" : "11rem") : "3rem"
           }}
         >
-          <div className="p-0 m-0 flex gap-5">
+          <div
+            className="grid grid-rows-[repeat(3,min-content)] cursor-pointer duration-100 delay-500 min-h-[2rem] w-fit"
+            style={{ gap: active ? "0.5rem" : "0.4rem" }}
+            onClick={() => {
+              setActive(!active);
+            }}
+          >
+            <div className="w-7 h-1 bg-green"></div>
+            <div className="w-7 h-1 bg-green"></div>
+            <div className="w-7 h-1 bg-green"></div>
+          </div>
+          <div className="p-0 m-0 flex flex-col gap-5">
             {matchmedia && (
               <>
                 <NavItem content="Home" location="/" />
@@ -42,19 +55,9 @@ export default function Nav() {
             {!matchmedia && (
               <>
                 <NavItem content="About me" location="/" />
-                <NavItem content="Resume" location="/resume" />
                 <NavItem content="Contact Me" location="/contact-me" />
               </>
             )}
-          </div>
-
-          <div
-            className="grid grid-row-3 cursor-pointer duration-100 delay-500 h-fit w-fit mr-4"
-            style={{ gap: active ? "0.5rem" : "0.4rem" }}
-          >
-            <div className="w-7 h-1 bg-green"></div>
-            <div className="w-7 h-1 bg-green"></div>
-            <div className="w-7 h-1 bg-green"></div>
           </div>
         </div>
       </div>

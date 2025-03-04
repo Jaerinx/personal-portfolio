@@ -16,6 +16,7 @@ import tescWebsite from "../../Static/contents_statics/tescucsd.org.png";
 import waveFunction from "../../Static/contents_statics/wavefunction.gif";
 import { useRef } from "react";
 import Hieu from "../../Static/contents_statics/Hieu.png";
+import { useMediaQuery } from "usehooks-ts";
 const icons = [
   FaReact,
   SiTypescript,
@@ -62,10 +63,11 @@ const information = [
 
 export default function Content() {
   const wave = useRef<HTMLImageElement>(null);
+  const media = useMediaQuery("(min-width:768px)");
   return (
     <AnimationContainer className="flex items-center z-0 md:pl-[3rem] justify-center md:justify-normal cursor-default">
       <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-6.5rem)] w-[calc(100vw-1rem)] ">
-        <ProfessionsCycle />
+        {media && <ProfessionsCycle />}
         <AnimationContainer className="md:h-[calc(100vh-12rem)] h-[calc(100vh-5rem)] border-t-0 rounded-b-lg p-4 md:p-5 overflow-y-auto">
           <div className="w-full xl:w-[90%] 2xl:w-[70%] grid lg:grid-cols-[0.8fr_1.4fr] md:grid-cols-2 grid-cols-1 gap-10 text-white text-paragraph mx-auto">
             <div className="cursor-text max-w-[700px]">
