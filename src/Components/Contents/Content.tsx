@@ -30,10 +30,10 @@ const information = [
   {
     title: "Tools",
     content: [
-      <div className="grid grid-cols-4 w-full gap-10">
+      <div className="w-max grid grid-cols-4 ml-auto md:gap-x-10">
         {icons.map((Icon) => {
           return (
-            <Icon className="text-[10rem] bg-inherit text-white hover:text-dark_beige" />
+            <Icon className="lg:text-[7vw] text-[5rem] bg-inherit text-white hover:text-dark_beige" />
           );
         })}
       </div>
@@ -63,12 +63,12 @@ const information = [
 export default function Content() {
   const wave = useRef<HTMLImageElement>(null);
   return (
-    <AnimationContainer className="flex items-center z-0 pl-[3.4rem] cursor-default">
-      <div className="absolute top-[4rem] grid grid-cols-1 grid-rows-[1fr_auto] w-[calc(100vw-7.8rem)] ">
+    <AnimationContainer className="flex items-center z-0 md:pl-[3rem] justify-center md:justify-normal cursor-default">
+      <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-5.5rem)] w-[calc(100vw-3rem)] ">
         <ProfessionsCycle />
-        <AnimationContainer className=" h-[calc(100vh-15rem)] border-t-0 rounded-b-lg p-0 lg:p-5 overflow-y-auto">
-          <div className="w-full lg:w-3/4 grid grid-cols-[0.9fr_1.1fr] gap-10 text-white text-paragraph mx-auto ">
-            <div className="px-20 cursor-text">
+        <AnimationContainer className="md:h-[calc(100vh-12rem)] h-[calc(100vh-5rem)] border-t-0 rounded-b-lg p-2 md:p-5 overflow-y-auto">
+          <div className="w-full xl:w-[90%] 2xl:w-[70%] grid lg:grid-cols-[0.8fr_1.4fr] md:grid-cols-2 grid-cols-1 gap-10 text-white text-paragraph mx-auto">
+            <div className="cursor-text max-w-[700px]">
               Hi! My name is Hieu. Welcome to my corner of the internet. I love
               making stuff and learning, and learning to make stuff. My journey
               into web development began in 2017 when my club needed a website
@@ -77,14 +77,14 @@ export default function Content() {
               mounting expectations would be the best motivator to learn how to
               center a div.
             </div>
-            <div className="w-full flex justify-center items-center overflow-hidden">
+            <div className="w-full flex justify-start  overflow-hidden items-start col-start-1 md:col-start-2">
               <img
                 src={Hieu}
                 alt=""
-                className="aspect-square object-[40%_40%] object-cover w-full max-w-[700px] max-h-[80vh] rounded-xl"
+                className=" aspect-square object-[40%_40%] object-cover w-full lg:w-[400px] 2xl:w-[80%] max-w-[500px] rounded-xl"
               />
             </div>
-            <div className="col-span-2 w-full px-20 cursor-text">
+            <div className="md:col-span-2 w-full lg:w-3/4 cursor-text">
               Ever since, my interest in various subjects and fields has never
               ended. From genetic algorithms, to wave function collapse, to
               dynamic and interactive web apps, I have been and will forever be
@@ -124,7 +124,7 @@ export default function Content() {
             link="https://tescucsd.org/"
             left_margin="auto"
           >
-            <div className="grid grid-cols-[0.6fr_0.4fr]">
+            <div className="grid grid-rows-[max-content_1fr] lg:grid-cols-[0.6fr_0.4fr]">
               <ul className=" list-disc text-white p-5">
                 <li className="text-white ">
                   Leveraged Vite HMR, Lazy loading strategies and SEO
@@ -137,11 +137,11 @@ export default function Content() {
                   Hover on the image for a surprise :) →
                 </li>
               </ul>
-              <div className="aspect-square overflow-y-hidden relative group rounded-lg">
+              <div className="lg:aspect-square lg:overflow-y-hidden h-fit relative group rounded-lg">
                 <img
                   src={tescWebsite}
                   alt=""
-                  className="absolute hover:translate-y-[-45%] rounded-xl hover:filter-none [filter:grayscale(100%)] duration-1000 "
+                  className="lg:absolute lg:hover:translate-y-[-45%] rounded-xl hover:filter-none  lg:[filter:grayscale(100%)] duration-1000 "
                 />
               </div>
             </div>
@@ -151,7 +151,7 @@ export default function Content() {
             width="75%"
             link="https://ecocoin-5ecb6.web.app/"
           >
-            <div className="grid grid-cols-2">
+            <div className="grid grid-rows-[max-content_1fr] lg:grid-cols-2">
               <ul className="ml-5 list-disc text-white p-5">
                 <li className="text-white ">
                   User coupon management system complete with admin and user
@@ -166,7 +166,7 @@ export default function Content() {
               <img
                 src={ecocoins}
                 alt=""
-                className="hover:filter-none [filter:grayscale(100%)] duration-1000 rounded-xl"
+                className="hover:filter-none lg:[filter:grayscale(100%)] duration-1000 rounded-xl"
               />
             </div>
           </ContentContainer>
@@ -191,7 +191,7 @@ export default function Content() {
             width="90%"
             link="https://jaerinx.github.io/2dterrain/"
           >
-            <div className="grid grid-cols-[0.7fr_0.3fr]">
+            <div className="grid lg:grid-cols-[0.6fr_0.4fr] justify-between grid-rows-[max-content_1fr]">
               <ul className="ml-5 list-disc p-5 ">
                 <li className="text-white">React.JS, NEXT.JS, TailwindCSS</li>
                 <li>
@@ -200,12 +200,12 @@ export default function Content() {
                   generation
                 </li>
               </ul>
-              <div className="relative">
+              <div className="flex justify-end w-full">
                 <img
                   src={terrain}
                   ref={wave}
                   alt=""
-                  className="hover:filter-none [filter:grayscale(100%)] duration-1000 z-0 rounded-xl"
+                  className="hover:filter-none [filter:grayscale(100%)] max-w-[400px] duration-1000 z-0 rounded-xl"
                   onMouseEnter={() => {
                     if (wave.current) {
                       wave.current.src = waveFunction;

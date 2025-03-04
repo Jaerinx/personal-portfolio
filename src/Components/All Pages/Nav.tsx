@@ -1,10 +1,12 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavItem from "./NavItem";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Nav() {
   const [active, setActive] = useState(false);
   const location = useLocation();
+  const matchmedia = useMediaQuery("(min-width: 768px)");
   useEffect(() => {
     const timeOutID = setTimeout(() => {
       setActive(false);
@@ -15,17 +17,27 @@ export default function Nav() {
   }, [location]);
   return (
     <>
-      <div className="fixed cursor-default top-0 right-0 h-[10%] w-fit m-0 flex justify-end content-center p-[5rem] z-50 pr-[4rem] ">
+      <div className="fixed cursor-default top-0 right-0 w-fit h-fit m-0 flex justify-end content-center md:p-[3rem] z-50 md:pr-[2rem] p-4">
         <div
-          className="flex rounded-lg justify-end gap-5 overflow-x-hidden duration-500 items-center h-fit"
+          className="flex rounded-lg justify-end gap-5 overflow-hidden duration-500 items-center h-fit"
           style={{
             width: active ? "25rem" : "4rem"
           }}
         >
           <div className="p-0 m-0 flex gap-5">
-            <NavItem content="Home" location="/" />
-            <NavItem content="About me" location="/content" />
-            <NavItem content="Resume" location="/resume" />
+            {matchmedia && (
+              <>
+                <NavItem content="Home" location="/" />
+                <NavItem content="About me" location="/content" />
+                <NavItem content="Resume" location="/resume" />
+              </>
+            )}
+            {!matchmedia && (
+              <>
+                <NavItem content="About me" location="/" />
+                <NavItem content="Resume" location="/resume" />
+              </>
+            )}
           </div>
 
           <div

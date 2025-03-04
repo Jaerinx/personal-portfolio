@@ -18,8 +18,8 @@ export default {
     },
     extend: {
       fontSize: {
-        paragraph: "2rem",
-        header: "4rem"
+        paragraph: "1.5rem",
+        header: "1.7rem"
       }
     }
   },

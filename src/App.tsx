@@ -7,9 +7,27 @@ import Resume from "./Components/Resume/Resume";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./Components/All Pages/Nav";
 import { AnimatePresence } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
+
 function App() {
-  return (
-    <>
+  const matchmedia = useMediaQuery("(min-width: 768px)");
+  if (!matchmedia) {
+    return (
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route element={<Computer />}>
+            <Route element={<Nav />}>
+              <Route path="" element={<Content />} />
+              <Route path="resume" element={<Resume />} />
+            </Route>
+            <Route path="off" element={<Error />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/off" />} />
+        </Routes>
+      </AnimatePresence>
+    );
+  } else {
+    return (
       <AnimatePresence mode="wait">
         <Routes>
           <Route element={<Computer />}>
@@ -23,8 +41,8 @@ function App() {
           <Route path="*" element={<Navigate to="/off" />} />
         </Routes>
       </AnimatePresence>
-    </>
-  );
+    );
+  }
 }
 
 export default App;

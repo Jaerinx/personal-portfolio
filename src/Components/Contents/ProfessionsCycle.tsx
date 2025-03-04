@@ -52,7 +52,7 @@ export default function ProfessionsCycle() {
             variants={textVariants}
             initial="initial"
             animate={professions[index].length > 0 ? "animate" : "initial"}
-            className="overflow-hidden text-nowrap text-[3vw] ml-4 flex flex-col-reverse"
+            className="overflow-hidden text-nowrap md:text-[3vw] text-header ml-4 flex flex-col-reverse"
           >
             {professions[index]}
           </motion.div>

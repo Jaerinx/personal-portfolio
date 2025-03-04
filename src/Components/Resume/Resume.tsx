@@ -22,11 +22,11 @@ export default function Resume() {
       animate="animate"
       exit={{ opacity: 0 }}
     >
-      <div className="w-[calc(100vw-7rem)] h-[calc(100vh-7rem)]  rounded-lg p-5 cursor-default z-0 flex justify-center relative">
+      <div className="w-[calc(100vw-6.8rem)] h-[calc(100vh-5rem)]  rounded-lg p-0 cursor-default z-0 flex justify-center">
         <a
           href={resume}
           target="_blank"
-          className="absolute left-5 top-5 text-[3vw]  hover:opacity-80 opacity-50 duration-100"
+          className="absolute md:left-[3rem] md:top-[3rem] left-8 top-8  md:text-[4vw] text-[2rem]  hover:opacity-80 opacity-50 duration-100"
         >
           <FaPrint />
         </a>
@@ -40,7 +40,7 @@ export default function Resume() {
               pageNumber={1}
               width={width * 0.6}
               renderTextLayer={false}
-              className="opacity-90"
+              className="opacity-90 md:scale-100 scale-150 origin-top-left"
             />
           </Document>
         </div>

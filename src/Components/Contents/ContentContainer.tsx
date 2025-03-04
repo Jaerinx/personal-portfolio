@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 // import { useNavigate } from "react-router-dom";
-
+import { useMediaQuery } from "usehooks-ts";
 export default function ContentContainer({
   children,
   width = "50%",
@@ -16,13 +16,14 @@ export default function ContentContainer({
   title?: string;
   link?: string;
 }) {
+  const matches = useMediaQuery("(min-width: 1024px)");
   return (
     <div
-      className={`grid grid-rows-[max-content_max-content] border-y-2 rounded-2xl border-[#000F2C] my-20 text-paragraph hover:scale-[0.99] duration-100 bg-[#000F2C] ${
+      className={`w-full grid grid-rows-[max-content_max-content] border-y-2 rounded-2xl border-[#000F2C] my-20 text-paragraph hover:scale-[0.99] duration-100 bg-[#000F2C] ${
         link ? ` cursor-pointer` : ""
       }`}
       style={{
-        width: width,
+        width: matches ? width : "100%",
         marginRight: right_margin,
         marginLeft: left_margin
       }}
@@ -41,7 +42,7 @@ export default function ContentContainer({
           <h1 className=" h-fit">{title}</h1>
         </div>
       </div>
-      <div className="p-5  ">
+      <div className="p-5">
         {children?.toString === null ? <></> : children}
       </div>
     </div>

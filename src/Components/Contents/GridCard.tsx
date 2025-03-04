@@ -26,20 +26,18 @@ export default function GridCard({
     <>
       <motion.div
         ref={ref}
-        className=" rounded-lg text-[1.3vw] w-auto float-start mb-5 duration-100"
+        className=" rounded-lg text-[1.3vw] w-full float-start mb-5 duration-100"
         variants={cardVariants}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
       >
-        <ul className="list-disc pl-5 ">
-          {contents.map((content) => {
-            if (typeof content === "object") {
-              return content;
-            } else {
-              return <li>{content}</li>;
-            }
-          })}
-        </ul>
+        {contents.map((content) => {
+          if (typeof content === "object") {
+            return content;
+          } else {
+            return <span>{content}</span>;
+          }
+        })}
       </motion.div>
     </>
   );
