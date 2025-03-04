@@ -13,8 +13,8 @@ export default {
     },
     cursor: {
       default: "url(/lime-green/Normal Select.cur), default",
-      pointer: "url(lime-green/Link Select.cur), pointer",
-      text: "url(lime-green/Text Select.cur), pointer"
+      pointer: "url(/lime-green/Link Select.cur), pointer",
+      text: "url(/lime-green/Text Select.cur), pointer"
     },
     extend: {
       fontSize: {

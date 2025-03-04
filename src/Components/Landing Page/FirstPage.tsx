@@ -66,7 +66,7 @@ export default function FirstPage() {
                 fontSize: "3vw",
                 display: "inline-block",
                 maxHeight: "fit-content",
-                cursor: "url(lime-green/Link Select.cur), pointer"
+                cursor: "url(/lime-green/Link Select.cur), pointer"
               }}
               repeat={0}
             />

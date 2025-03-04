@@ -1,5 +1,5 @@
 import { Document, Page, pdfjs } from "react-pdf";
-import resume from "/Resume.pdf";
+import resume from "/HIEU-NGUYEN-SWE-INTERN-REACT-FRONTEND-DEV.pdf";
 import { motion } from "framer-motion";
 import { contentVariants } from "../../Framer-Variants/variants";
 import useWindowDimensions from "../../Hooks/WindowDimension";
@@ -22,18 +22,18 @@ export default function Resume() {
       animate="animate"
       exit={{ opacity: 0 }}
     >
-      <div className="w-[calc(100vw-6.8rem)] h-[calc(100vh-5rem)]  rounded-lg p-0 cursor-default z-0 flex justify-center">
+      <div className="w-[calc(100vw-6.8rem)] h-[calc(100vh-7rem)]  rounded-lg p-0 cursor-default z-0 flex justify-center">
         <a
           href={resume}
           target="_blank"
-          className="absolute md:left-[3rem] md:top-[3rem] left-8 top-8  md:text-[4vw] text-[2rem]  hover:opacity-80 opacity-50 duration-100"
+          className="mr-1 text-header  hover:opacity-80 opacity-50 duration-100"
         >
           <FaPrint />
         </a>
         <div
           className={`w-[${width * 0.6}] h-[${
             width * 0.6 * heightFactor
-          }] overflow-auto p-3 border-2 border-white rounded-lg`}
+          }] overflow-auto p-3 border-2 border-white rounded-lg relative`}
         >
           <Document file={resume}>
             <Page

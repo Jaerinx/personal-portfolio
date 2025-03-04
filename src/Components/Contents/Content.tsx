@@ -33,7 +33,7 @@ const information = [
       <div className="w-max grid grid-cols-4 ml-auto md:gap-x-10">
         {icons.map((Icon) => {
           return (
-            <Icon className="lg:text-[7vw] text-[5rem] bg-inherit text-white hover:text-dark_beige" />
+            <Icon className="lg:text-[7vw] text-[4rem] bg-inherit text-white hover:text-dark_beige" />
           );
         })}
       </div>
@@ -64,9 +64,9 @@ export default function Content() {
   const wave = useRef<HTMLImageElement>(null);
   return (
     <AnimationContainer className="flex items-center z-0 md:pl-[3rem] justify-center md:justify-normal cursor-default">
-      <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-5.5rem)] w-[calc(100vw-3rem)] ">
+      <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-6.5rem)] w-[calc(100vw-1rem)] ">
         <ProfessionsCycle />
-        <AnimationContainer className="md:h-[calc(100vh-12rem)] h-[calc(100vh-5rem)] border-t-0 rounded-b-lg p-2 md:p-5 overflow-y-auto">
+        <AnimationContainer className="md:h-[calc(100vh-12rem)] h-[calc(100vh-5rem)] border-t-0 rounded-b-lg p-4 md:p-5 overflow-y-auto">
           <div className="w-full xl:w-[90%] 2xl:w-[70%] grid lg:grid-cols-[0.8fr_1.4fr] md:grid-cols-2 grid-cols-1 gap-10 text-white text-paragraph mx-auto">
             <div className="cursor-text max-w-[700px]">
               Hi! My name is Hieu. Welcome to my corner of the internet. I love
@@ -96,7 +96,7 @@ export default function Content() {
 
           <div className="w-full h-[50vh] flex items-center flex-col justify-center">
             <div className="w-full h-1 bg-white mt-10"></div>
-            <h1 className="text-header m-5 cursor-text">Some Info about me</h1>
+            <h1 className="text-header m-5 cursor-text">Some Info</h1>
             <div className="w-full h-1 bg-white mb-10"></div>
           </div>
 
@@ -205,7 +205,7 @@ export default function Content() {
                   src={terrain}
                   ref={wave}
                   alt=""
-                  className="hover:filter-none [filter:grayscale(100%)] max-w-[400px] duration-1000 z-0 rounded-xl"
+                  className="hover:filter-none [filter:grayscale(100%)] max-w-[400px] w-full duration-1000 z-0 rounded-xl"
                   onMouseEnter={() => {
                     if (wave.current) {
                       wave.current.src = waveFunction;

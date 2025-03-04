@@ -36,7 +36,7 @@ export default function ProfessionsCycle() {
 
   return (
     <div
-      className="h-[calc(7rem)] rounded-t-lg p-0 lg:p-5 cursor-pointer z-0 overflow-hidden "
+      className="h-[calc(6rem)] p-0 lg:p-4 cursor-pointer z-0 overflow-hidden "
       onClick={click}
     >
       <h1 className="grid grid-cols-[repeat(2,max-content)] grid-rows-1 w-min gap-2 text-header">

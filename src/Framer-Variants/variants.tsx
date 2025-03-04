@@ -1,16 +1,16 @@
 export const navVariants = {
   initial: {
-    y: "-100vh",
+    y: "-100vh"
   },
   animate: {
-    y: 0,
+    y: 0
   },
   hover: {
     y: 10,
     transition: {
-      duration: 0,
-    },
-  },
+      duration: 0
+    }
+  }
 };
 
 export const navShadowVariants = {
@@ -18,32 +18,35 @@ export const navShadowVariants = {
     display: "block",
     transition: {
       duration: 0,
-      delay: 0.2,
-    },
+      delay: 0.2
+    }
   },
   animate: {
     display: "block",
     transition: {
       duration: 0,
-      delay: 0.2,
-    },
+      delay: 0.2
+    }
   },
   hover: {
     display: "none",
     transition: {
       duration: 0,
-      delay: 0,
-    },
-  },
+      delay: 0
+    }
+  }
 };
 
 export const contentVariants = {
   initial: {
-    opacity: 0,
+    opacity: 0
   },
   animate: {
     opacity: 1,
-  },
+    transition: {
+      delay: 0.4
+    }
+  }
 };
 
 export const barVariants = {
@@ -51,27 +54,27 @@ export const barVariants = {
     height: 0,
     overflow: "hidden",
     transition: {
-      duration: 0.1,
-    },
+      duration: 0.1
+    }
   },
   animate: {
     height: [0, "100%"],
     transition: {
-      duration: 0.1,
-    },
-  },
+      duration: 0.1
+    }
+  }
 };
 
 export const textVariants = {
   initial: {
     width: 0,
-    overflow: "hidden",
+    overflow: "hidden"
   },
   animate: {
     width: "100%",
     overflow: "hidden",
     transition: {
-      duration: 0.5,
-    },
-  },
+      duration: 0.5
+    }
+  }
 };
