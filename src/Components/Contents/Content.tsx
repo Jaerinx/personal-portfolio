@@ -17,6 +17,9 @@ import waveFunction from "../../Static/contents_statics/wavefunction.gif";
 import { useRef } from "react";
 import Hieu from "../../Static/contents_statics/Hieu.png";
 import { useMediaQuery } from "usehooks-ts";
+import bis from "../../Static/contents_statics/bis.png";
+import ucsd from "../../Static/contents_statics/UCSD.png";
+import { GithubFilled, LinkedinFilled, MailFilled } from "@ant-design/icons";
 const icons = [
   FaReact,
   SiTypescript,
@@ -38,16 +41,6 @@ const information = [
           );
         })}
       </div>
-    ],
-    nothing: [
-      "react",
-      "Typescript",
-      "Python",
-      "HTML",
-      "CSS",
-      "javascript",
-      "Java",
-      "SQL"
     ]
   },
   {
@@ -56,6 +49,15 @@ const information = [
       <div className="flex w-full">
         <img src={tesc} className="w-1/2"></img>
         <img src={ds3} className="w-1/3"></img>
+      </div>
+    ]
+  },
+  {
+    title: "Education",
+    content: [
+      <div className="flex flex-col w-full">
+        <img src={bis} className="w-auto"></img>
+        <img src={ucsd} className="w-1/5"></img>
       </div>
     ]
   }
@@ -86,12 +88,25 @@ export default function Content() {
               mounting expectations would be the best motivator to learn how to
               center a div.
             </div>
-            <div className="w-full flex justify-start  overflow-hidden items-start col-start-1 md:col-start-2">
-              <img
-                src={Hieu}
-                alt=""
-                className=" aspect-square object-[40%_40%] object-cover w-full lg:w-[400px] 2xl:w-[80%] max-w-[500px] rounded-xl"
-              />
+            <div className="w-full flex justify-start  overflow-hidden items-start col-start-1 md:col-start-2 ">
+              <span className="relative w-full lg:w-[400px] 2xl:w-[80%] max-w-[450px] cursor-pointer group ">
+                <img
+                  src={Hieu}
+                  alt=""
+                  className="aspect-square  object-[40%_40%] w-full object-cover  rounded-xl "
+                />
+                <div className="w-full absolute bottom-0 right-0 backdrop-brightness-75 px-5 flex justify-start items-end">
+                  <a href="https://www.linkedin.com/in/vietminhhieunguyen/">
+                    <LinkedinFilled className="text-white mx-1  duration-200 text-[3rem] hover:text-green" />
+                  </a>
+                  <a href="mailto:vin028@ucsd.edu">
+                    <MailFilled className="text-white   mx-1  duration-200 text-[2.7rem] hover:text-green" />
+                  </a>
+                  <a href="https://github.com/Jaerinx">
+                    <GithubFilled className="text-white   mx-1  duration-200 text-[3rem] hover:text-green" />
+                  </a>
+                </div>
+              </span>
             </div>
             <div className="md:col-span-2 w-full lg:w-3/4 cursor-text">
               Ever since, my interest in various subjects and fields has never
@@ -128,7 +143,7 @@ export default function Content() {
             <div className="w-full h-1 bg-white mb-10"></div>
           </div>
           <ContentContainer
-            title="TESC website redesign | Full-Stack Developer | 2025"
+            title="TESC WEBSITE REDESIGN | Full-Stack Developer | 2025"
             width="75%"
             link="https://tescucsd.org/"
             left_margin="auto"
@@ -136,8 +151,8 @@ export default function Content() {
             <div className="grid grid-rows-[max-content_1fr] lg:grid-cols-[0.6fr_0.4fr]">
               <ul className=" list-disc text-white p-5">
                 <li className="text-white ">
-                  Leveraged Vite HMR, Lazy loading strategies and SEO
-                  optimization strategies to half LCP load times
+                  Leveraged Vite HMR, Lazy loading and SEO optimization
+                  strategies to halve LCP load times
                 </li>
                 <li className="text-white ">
                   Utilised Git version control to streamline team operation
@@ -158,7 +173,7 @@ export default function Content() {
             </div>
           </ContentContainer>
           <ContentContainer
-            title="Currency Management App | Full-Stack Developer | 2021"
+            title="ECOCOINS | Full-Stack Developer | 2021"
             width="75%"
             link="https://ecocoin-5ecb6.web.app/"
           >
@@ -198,7 +213,7 @@ export default function Content() {
             </ul>
           </ContentContainer>
           <ContentContainer
-            title="Model Synthesis and Wave Function Collapse Visualizer for 2-D terrain Generation | 2024"
+            title="MODEL SYNTHESIS AND WAVE FUNCTION COLLAPSE VISUALISER FOR 2-D TERRAIN GENERATION | 2024"
             width="90%"
             link="https://jaerinx.github.io/2dterrain/"
           >

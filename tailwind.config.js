@@ -9,7 +9,8 @@ export default {
       black: "#000000",
       white: "#ebe8ff",
       dark_green: "#82A05c",
-      green: "#82C05c"
+      green: "#82C05c",
+      blue: "#04001c"
     },
     cursor: {
       default: "url(/lime-green/Normal Select.cur), default",

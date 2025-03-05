@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import NavItem from "./NavItem";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-
+import { LinkedinFilled, GithubFilled, MailFilled } from "@ant-design/icons";
 export default function Nav() {
   const [active, setActive] = useState(false);
   const location = useLocation();
@@ -29,7 +29,7 @@ export default function Nav() {
             if (matchmedia) setActive(false);
           }}
           style={{
-            height: active ? (matchmedia ? "24rem" : "11rem") : "3rem"
+            height: active ? (matchmedia ? "21rem" : "11rem") : "3rem"
           }}
         >
           <div
@@ -39,9 +39,9 @@ export default function Nav() {
               setActive(!active);
             }}
           >
-            <div className="w-7 h-1 bg-green"></div>
-            <div className="w-7 h-1 bg-green"></div>
-            <div className="w-7 h-1 bg-green"></div>
+            <div className="w-7 h-1 ml-auto bg-green"></div>
+            <div className="w-6 h-1 ml-auto bg-green"></div>
+            <div className="w-5 h-1 ml-auto bg-green"></div>
           </div>
           <div className="p-0 m-0 flex flex-col gap-5">
             {matchmedia && (
@@ -58,6 +58,17 @@ export default function Nav() {
                 <NavItem content="Contact Me" location="/contact-me" />
               </>
             )}
+          </div>
+          <div className="w-fit text-[2rem]">
+            <a href="https://www.linkedin.com/in/vietminhhieunguyen/">
+              <LinkedinFilled className="text-white mx-1  duration-200  hover:text-green" />
+            </a>
+            <a href="mailto:vin028@ucsd.edu">
+              <MailFilled className="text-white mx-1  duration-200  hover:text-green" />
+            </a>
+            <a href="https://github.com/Jaerinx">
+              <GithubFilled className="text-white   mx-1  duration-200  hover:text-green" />
+            </a>
           </div>
         </div>
       </div>
