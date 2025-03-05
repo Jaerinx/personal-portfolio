@@ -62,7 +62,7 @@ export default function Contact() {
             onSubmit();
           }}
           ref={form}
-          className="flex flex-col gap-5 w-full h-full py-[1rem] max-w-[500px] text-paragraph "
+          className="flex flex-col gap-5 w-full h-full py-[1rem] max-w-[500px] text-paragraph [&>*]:px-2 "
         >
           <h1 className="m-0">Contact me</h1>
           <input
