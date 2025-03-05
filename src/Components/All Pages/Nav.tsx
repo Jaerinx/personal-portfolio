@@ -19,14 +19,14 @@ export default function Nav() {
     <>
       <div className="fixed cursor-default top-0 right-0 w-fit h-fit m-0 flex justify-end content-center md:p-[2.25rem] z-50 md:pr-[1.25rem] xl:p-[3.25rem] p-4">
         <div
-          className={`flex rounded-lg justify-start items-end gap-5 flex-col overflow-hidden duration-500 h-min p-3 ${
+          className={`flex rounded-lg justify-start items-end gap-5 flex-col overflow-hidden duration-700 h-min p-3 z-50 ${
             active ? "backdrop-blur" : ""
           }`}
           onMouseOver={() => {
-            setActive(true);
+            if (matchmedia) setActive(true);
           }}
           onMouseOut={() => {
-            setActive(false);
+            if (matchmedia) setActive(false);
           }}
           style={{
             height: active ? (matchmedia ? "24rem" : "11rem") : "3rem"

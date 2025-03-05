@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Arrow from "/Arrow.svg";
 import { useNavigate } from "react-router-dom";
 export default function Contact() {
-  const [result, setResult] = useState("Form Submitted Successfully");
+  const [result, setResult] = useState("");
   const navigate = useNavigate();
   const form = useRef<HTMLFormElement>(null);
   const onSubmit = async (event: EventTarget & HTMLFormElement) => {

@@ -68,6 +68,13 @@ export default function Content() {
     <AnimationContainer className="flex items-center z-0 md:pl-[3rem] justify-center md:justify-normal cursor-default">
       <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-6.5rem)] w-[calc(100vw-1rem)] ">
         {media && <ProfessionsCycle />}
+        {!media && (
+          <>
+            <div className="h-16 flex items-center text-dark_green">
+              !!! Please use a computer for more content
+            </div>
+          </>
+        )}
         <AnimationContainer className="md:h-[calc(100vh-12rem)] h-[calc(100vh-5rem)] border-t-0 rounded-b-lg p-4 md:p-5 overflow-y-auto">
           <div className="w-full xl:w-[90%] 2xl:w-[70%] grid lg:grid-cols-[0.8fr_1.4fr] md:grid-cols-2 grid-cols-1 gap-10 text-white text-paragraph mx-auto">
             <div className="cursor-text max-w-[700px]">
@@ -135,9 +142,11 @@ export default function Content() {
                 <li className="text-white ">
                   Utilised Git version control to streamline team operation
                 </li>
-                <li className="text-white ">
-                  Hover on the image for a surprise :) →
-                </li>
+                {media && (
+                  <li className="text-white ">
+                    Hover on the image for a surprise :) →
+                  </li>
+                )}
               </ul>
               <div className="lg:aspect-square lg:overflow-y-hidden h-fit relative group rounded-lg">
                 <img

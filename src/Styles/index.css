@@ -12,10 +12,9 @@
 }
 :root {
   font-family: "Source Code Pro";
-  letter-spacing: -3px;
+  letter-spacing: -1px;
   h1 {
     font-family: "DOS";
-    letter-spacing: -3px;
     color: #82c05c;
     font-size: 2rem;
   }
@@ -54,5 +53,6 @@
 @media only screen and (min-width: 768px) {
   :root {
     text-align: justify;
+    letter-spacing: -3px;
   }
 }
