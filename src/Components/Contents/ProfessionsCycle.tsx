@@ -36,7 +36,7 @@ export default function ProfessionsCycle() {
 
   return (
     <div
-      className="h-[calc(6rem)] p-0 lg:p-4 cursor-pointer z-0 overflow-hidden "
+      className="h-[calc(4rem)] p-0 lg:p-4 cursor-pointer z-0 overflow-hidden "
       onClick={click}
     >
       <h1 className="grid grid-cols-[repeat(2,max-content)] grid-rows-1 w-min gap-2 text-header">
@@ -52,7 +52,7 @@ export default function ProfessionsCycle() {
             variants={textVariants}
             initial="initial"
             animate={professions[index].length > 0 ? "animate" : "initial"}
-            className="overflow-hidden text-nowrap md:text-[3vw] text-header ml-4 flex flex-col-reverse"
+            className="overflow-hidden text-nowrap md:text-header text-header ml-4 flex flex-col-reverse"
           >
             {professions[index]}
           </motion.div>

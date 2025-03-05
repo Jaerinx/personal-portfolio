@@ -17,7 +17,7 @@ export default function Nav() {
   }, [location]);
   return (
     <>
-      <div className="fixed cursor-default top-0 right-0 w-fit h-fit m-0 flex justify-end content-center md:p-[2.25rem] z-50 md:pr-[1.25rem] xl:p-[3.25rem] p-4">
+      <div className="fixed cursor-default top-0 right-0 w-fit h-fit m-0 flex justify-end content-center md:p-[3.5rem] z-50 md:pr-[4rem] p-4">
         <div
           className={`flex rounded-lg justify-start items-end gap-5 flex-col overflow-hidden duration-700 h-min p-3 z-50 ${
             active ? "backdrop-blur" : ""

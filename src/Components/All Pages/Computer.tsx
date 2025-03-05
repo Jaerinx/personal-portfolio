@@ -32,8 +32,8 @@ export default function Computer() {
   return (
     <>
       <div className="absolute w-screen h-full cursor-default hidden md:inline ">
-        <div className=" absolute w-full min-h-full border-[2.5vw] border-beige m-0 rounded-lg z-[-2]"></div>
-        <div className=" absolute w-[calc(98vw)] h-[calc(100vh-2vw)] rounded-lg border-[0.5rem] border-dark_beige m-[1vw] z-[-1]"></div>
+        <div className=" absolute w-full min-h-full border-[2rem] border-beige m-0 rounded-lg z-[-2]"></div>
+        <div className=" absolute w-[calc(100vw-1.5rem)] h-[calc(100vh-1.5rem)] rounded-lg border-[0.5rem] border-dark_beige m-[0.75rem] z-[-1]"></div>
         <div className="bg-shadow_beige absolute bottom-[0.5rem] left-1/2 w-[2vw] ml-[-1.5rem] rounded-full translate-y-1 h-[2vw] z-1 hidden lg:inline"></div>
         <motion.div
           className="bg-dark_beige absolute bottom-[0.5rem] left-1/2 w-[2vw] ml-[-1.5rem] rounded-full z-2 hidden lg:inline"

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
 export default function ContentContainer({
@@ -7,7 +8,8 @@ export default function ContentContainer({
   left_margin,
   right_margin,
   title = "",
-  link
+  link,
+  to
 }: {
   children?: ReactNode;
   width?: string;
@@ -15,12 +17,14 @@ export default function ContentContainer({
   right_margin?: string;
   title?: string;
   link?: string;
+  to?: string;
 }) {
   const matches = useMediaQuery("(min-width: 1024px)");
+  const navigate = useNavigate();
   return (
     <div
       className={`w-full grid grid-rows-[max-content_max-content] border-y-2 rounded-2xl border-[#000F2C] my-20 text-paragraph hover:scale-[0.99] duration-100 bg-[#000F2C] ${
-        link ? ` cursor-pointer` : ""
+        link || to ? ` cursor-pointer` : ""
       }`}
       style={{
         width: matches ? width : "100%",
@@ -30,6 +34,9 @@ export default function ContentContainer({
       onClick={() => {
         if (link) {
           window.location.href = link;
+        }
+        if (to) {
+          navigate(to);
         }
       }}
     >

@@ -9,6 +9,7 @@ import Nav from "./Components/All Pages/Nav";
 import { AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "usehooks-ts";
 import Contact from "./Components/ContactMe/Contact";
+import Writing from "./Components/writing/Wrting";
 
 function App() {
   const matchmedia = useMediaQuery("(min-width: 768px)");
@@ -37,6 +38,7 @@ function App() {
               <Route path="content" element={<Content />} />
               <Route path="resume" element={<Resume />} />
               <Route path="contact-me" element={<Contact />} />
+              <Route path="writing/:writingId" element={<Writing />} />
             </Route>
             <Route path="off" element={<Error />} />
           </Route>

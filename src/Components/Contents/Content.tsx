@@ -68,7 +68,7 @@ export default function Content() {
   const media = useMediaQuery("(min-width:768px)");
   return (
     <AnimationContainer className="flex items-center z-0 md:pl-[3rem] justify-center md:justify-normal cursor-default">
-      <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-6.5rem)] w-[calc(100vw-1rem)] ">
+      <div className="absolute md:top-[2.5rem] top-0 grid grid-cols-1 grid-rows-[1fr_auto] md:w-[calc(100vw-6rem)] w-[calc(100vw-1rem)] ">
         {media && <ProfessionsCycle />}
         {!media && (
           <>
@@ -77,9 +77,9 @@ export default function Content() {
             </div>
           </>
         )}
-        <AnimationContainer className="md:h-[calc(100vh-12rem)] h-[calc(100vh-5rem)] border-t-0 rounded-b-lg p-4 md:p-5 overflow-y-auto">
-          <div className="w-full xl:w-[90%] 2xl:w-[70%] grid lg:grid-cols-[0.8fr_1.4fr] md:grid-cols-2 grid-cols-1 gap-10 text-white text-paragraph mx-auto">
-            <div className="cursor-text max-w-[700px]">
+        <AnimationContainer className="md:h-[calc(100vh-9rem)] h-[calc(100vh-4rem)] border-t-0 rounded-b-lg p-4 md:p-5 overflow-y-auto">
+          <div className="w-fit grid lg:grid-cols-[auto_1fr] auto-cols-min md:grid-cols-2 grid-cols-1 gap-x-16 text-white text-paragraph mx-auto">
+            <div className="cursor-text max-w-[350px]">
               Hi! My name is Hieu. Welcome to my corner of the internet. I love
               making stuff and learning, and learning to make stuff. My journey
               into web development began in 2017 when my club needed a website
@@ -88,12 +88,12 @@ export default function Content() {
               mounting expectations would be the best motivator to learn how to
               center a div.
             </div>
-            <div className="w-full flex justify-start  overflow-hidden items-start col-start-1 md:col-start-2 ">
-              <span className="relative w-full lg:w-[400px] 2xl:w-[80%] max-w-[450px] cursor-pointer group ">
+            <div className=" w-[35vw] flex justify-start  overflow-hidden items-start ">
+              <span className="relative w-full lg:w-[400px] 2xl:w-full max-w-[450px] cursor-pointer group  ">
                 <img
                   src={Hieu}
                   alt=""
-                  className="aspect-square  object-[40%_40%] w-full object-cover  rounded-xl "
+                  className="aspect-square  object-[40%_40%] w-full object-cover  rounded-3xl "
                 />
                 <div className="w-full absolute bottom-0 right-0 backdrop-brightness-75 px-5 flex justify-start items-end">
                   <a href="https://www.linkedin.com/in/vietminhhieunguyen/">
@@ -108,7 +108,7 @@ export default function Content() {
                 </div>
               </span>
             </div>
-            <div className="md:col-span-2 w-full lg:w-3/4 cursor-text">
+            <div className="md:col-span-2 max-w-[800px] cursor-text">
               Ever since, my interest in various subjects and fields has never
               ended. From genetic algorithms, to wave function collapse, to
               dynamic and interactive web apps, I have been and will forever be
@@ -246,6 +246,30 @@ export default function Content() {
               </div>
             </div>
           </ContentContainer>
+
+          {/* Publications */}
+          {media && (
+            <>
+              <div className="w-full h-[50vh] flex items-center flex-col justify-center">
+                <div className="w-full h-1 bg-white mt-10"></div>
+                <h1 className="text-header m-5 cursor-text">Writing</h1>
+                <div className="w-full h-1 bg-white mb-10"></div>
+              </div>
+
+              <ContentContainer
+                title="Comparing the speed and accuracy of procedurally generated Genetic Algorithms  against conventional pathfinding algorithms in 2D maze-like  grid environments | 2022"
+                width="40%"
+                left_margin="auto"
+                to="/writing/1"
+              ></ContentContainer>
+              <ContentContainer
+                title="ARC LENGTH AGAINST TIME OF DESCENT - INTO THE BRACHISTOCHRONE | 2022"
+                width="40%"
+                left_margin="auto"
+                to="/writing/2"
+              ></ContentContainer>
+            </>
+          )}
         </AnimationContainer>
       </div>
     </AnimationContainer>
