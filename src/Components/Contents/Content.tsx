@@ -72,14 +72,14 @@ export default function Content() {
         {media && <ProfessionsCycle />}
         {!media && (
           <>
-            <div className="h-16 flex items-center text-dark_green">
+            <div className="h-16 flex items-center text-dark_green max-w-[80%]">
               !!! Please use a computer for more content
             </div>
           </>
         )}
         <AnimationContainer className="md:h-[calc(100vh-9rem)] h-[calc(100vh-4rem)] border-t-0 rounded-b-lg p-4 md:p-5 overflow-y-auto">
           <div className="w-fit grid lg:grid-cols-[auto_1fr] auto-cols-min md:grid-cols-2 grid-cols-1 gap-x-16 text-white text-paragraph mx-auto">
-            <div className="cursor-text max-w-[350px]">
+            <div className="cursor-text lg:max-w-[350px] max-w-[450px]">
               Hi! My name is Hieu. Welcome to my corner of the internet. I love
               making stuff and learning, and learning to make stuff. My journey
               into web development began in 2017 when my club needed a website
@@ -88,7 +88,7 @@ export default function Content() {
               mounting expectations would be the best motivator to learn how to
               center a div.
             </div>
-            <div className=" w-[35vw] flex justify-start  overflow-hidden items-start ">
+            <div className="w-full md:w-[35vw] flex justify-start  overflow-hidden items-start my-10 md:m-0">
               <span className="relative w-full lg:w-[400px] 2xl:w-full max-w-[450px] cursor-pointer group  ">
                 <img
                   src={Hieu}

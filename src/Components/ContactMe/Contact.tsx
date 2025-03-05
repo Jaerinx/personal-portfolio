@@ -7,11 +7,14 @@ export default function Contact() {
   const [result, setResult] = useState("");
   const navigate = useNavigate();
   const form = useRef<HTMLFormElement>(null);
-  const onSubmit = async (event: EventTarget & HTMLFormElement) => {
-    event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.currentTarget);
 
+  const onSubmit = async () => {
+    setResult("Sending....");
+    if (!form.current) {
+      setResult("Error: empty form.");
+      return;
+    }
+    const formData = new FormData(form.current);
     formData.append("access_key", "450cdfba-cb76-4252-9373-045e388eb38a");
 
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -23,12 +26,12 @@ export default function Contact() {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
-      form.current?.reset();
+      form.current.reset();
       setTimeout(() => {
         setResult("Redirecting...");
       }, 1000);
       setTimeout(() => {
-        navigate(-1);
+        navigate("/");
       }, 2000);
     } else {
       console.log("Error", data);
@@ -55,7 +58,8 @@ export default function Contact() {
         />
         <form
           onSubmit={(e) => {
-            onSubmit(e.currentTarget);
+            e.preventDefault();
+            onSubmit();
           }}
           ref={form}
           className="flex flex-col gap-5 w-full h-full py-[1rem] max-w-[500px] text-paragraph "
