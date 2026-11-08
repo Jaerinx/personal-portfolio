@@ -1,19 +1,33 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import { useEffect, useState } from "react";
+
 const useMousePosition = () => {
-  const [mousePosition, setMousePosition] = React.useState({
-    x: 0,
-    y: 0
-  });
-  React.useEffect(() => {
-    const updateMousePosition = (ev: { clientX: any; clientY: any }) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    let frame = 0;
+    let next = { x: 0, y: 0 };
+
+    const update = (x: number, y: number) => {
+      next = { x, y };
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        setMousePosition(next);
+        frame = 0;
+      });
     };
-    window.addEventListener("mousemove", updateMousePosition);
+
+    const onPointerMove = (event: PointerEvent) => {
+      update(event.clientX, event.clientY);
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener("pointermove", onPointerMove);
+      if (frame) cancelAnimationFrame(frame);
     };
   }, []);
+
   return mousePosition;
 };
+
 export default useMousePosition;

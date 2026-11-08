@@ -1,6 +1,7 @@
 import { useState } from "react";
 import power from "/power.svg";
 import LittleGuy from "./LittleGuy";
+import CrtChassis from "./CrtChassis";
 import { AnimatePresence, motion } from "framer-motion";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
@@ -18,6 +19,7 @@ const powerVariants = {
     }
   }
 };
+
 export default function Computer() {
   const [buttonHover, setbuttonHover] = useState(false);
   const location = useLocation();
@@ -29,41 +31,67 @@ export default function Computer() {
       navigate("/");
     }, 500);
   };
+
   return (
     <>
-      <div className="absolute w-screen h-full cursor-default hidden md:inline ">
-        <div className=" absolute w-full min-h-full border-[2rem] border-beige m-0 rounded-lg z-[-2]"></div>
-        <div className=" absolute w-[calc(100vw-1.5rem)] h-[calc(100vh-1.5rem)] rounded-lg border-[0.5rem] border-dark_beige m-[0.75rem] z-[-1]"></div>
-        <div className="bg-shadow_beige absolute bottom-[0.5rem] left-1/2 w-[2vw] ml-[-1.5rem] rounded-full translate-y-1 h-[2vw] z-1 hidden lg:inline"></div>
-        <motion.div
-          className="bg-dark_beige absolute bottom-[0.5rem] left-1/2 w-[2vw] ml-[-1.5rem] rounded-full z-2 hidden lg:inline"
-          onMouseEnter={() => {
-            setbuttonHover(true);
-          }}
-          onMouseLeave={() => {
-            setbuttonHover(false);
-          }}
-          onClick={() => {
-            setbuttonHover(false);
-            navigate("/off");
-          }}
-          variants={powerVariants}
-          animate={buttonHover ? "animate" : ""}
+      <CrtChassis />
+
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[30] hidden h-[3.5rem] lg:block">
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 [perspective:280px]"
         >
-          <img
-            src={power}
-            alt=""
-            className=""
-            style={{
-              filter: `${
-                buttonHover
-                  ? "invert(14%) sepia(97%) saturate(7444%) hue-rotate(0deg) brightness(70%) contrast(105%)"
-                  : ""
-              } `,
-              cursor: "pointer"
-            }}
-          />
-        </motion.div>
+          <div
+            className="relative size-[clamp(2.75rem,2.5vw,3.1rem)]"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            <div
+              className="absolute inset-0 rounded-full bg-shadow_beige"
+              style={{ transform: "translateZ(-12px) translateY(5px)" }}
+            />
+            <div
+              className="absolute -inset-[3px] rounded-full"
+              style={{
+                transform: "translateZ(-6px)",
+                background:
+                  "linear-gradient(145deg, #d4d0c4 0%, #8f8b7e 42%, #594a37 100%)"
+              }}
+            />
+            <div
+              className="relative size-full"
+              style={{ transform: "translateZ(4px)" }}
+            >
+              <motion.button
+                type="button"
+                aria-label="Power"
+                className="pointer-events-auto relative block size-full cursor-pointer rounded-full bg-dark_beige p-[0.2rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-beige"
+                onMouseEnter={() => setbuttonHover(true)}
+                onMouseLeave={() => setbuttonHover(false)}
+                onClick={() => {
+                  setbuttonHover(false);
+                  navigate("/off");
+                }}
+                variants={powerVariants}
+                animate={buttonHover ? "animate" : "initial"}
+              >
+                <img
+                  src={power}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="size-full"
+                  style={{
+                    filter: buttonHover
+                      ? "invert(14%) sepia(97%) saturate(7444%) hue-rotate(0deg) brightness(70%) contrast(105%)"
+                      : ""
+                  }}
+                />
+              </motion.button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="pointer-events-none fixed inset-0 z-[40] hidden overflow-visible lg:block">
         <AnimatePresence mode="wait">
           {(buttonHover || location.pathname === "/off") && (
             <LittleGuy clickButton={clickButton} />

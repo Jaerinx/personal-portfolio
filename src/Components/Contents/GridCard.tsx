@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { ReactNode, useRef } from "react";
-// import { useEffect, useRef } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function GridCard({
   contents,
@@ -11,34 +11,28 @@ export default function GridCard({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const cardVariants = {
-    initial: {
-      opacity: 0
-    },
+    initial: { opacity: 0 },
     animate: {
       opacity: 1,
-      transition: {
-        delay: delay
-      }
+      transition: { delay: reduceMotion ? 0 : delay, duration: reduceMotion ? 0 : 0.3 }
     }
   };
   return (
-    <>
-      <motion.div
-        ref={ref}
-        className=" rounded-lg text-[1.3vw] w-full float-start mb-5 duration-100"
-        variants={cardVariants}
-        initial="initial"
-        animate={isInView ? "animate" : "initial"}
-      >
-        {contents.map((content) => {
-          if (typeof content === "object") {
-            return content;
-          } else {
-            return <span>{content}</span>;
-          }
-        })}
-      </motion.div>
-    </>
+    <motion.div
+      ref={ref}
+      className="mb-4 w-full text-[1.05rem] md:text-paragraph"
+      variants={cardVariants}
+      initial={reduceMotion ? false : "initial"}
+      animate={reduceMotion || isInView ? "animate" : "initial"}
+    >
+      {contents.map((content, index) => {
+        if (typeof content === "object") {
+          return <div key={index}>{content}</div>;
+        }
+        return <span key={index}>{content}</span>;
+      })}
+    </motion.div>
   );
 }

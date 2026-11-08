@@ -1,17 +1,27 @@
 import { motion } from "framer-motion";
 import { contentVariants } from "../../Framer-Variants/variants";
 import { useRef, useState } from "react";
-import Arrow from "/Arrow.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useMediaQuery } from "usehooks-ts";
+
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-blue";
+const field =
+  "min-h-11 border border-green bg-transparent px-2 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-blue";
+
 export default function Contact() {
   const [result, setResult] = useState("");
+  const [sending, setSending] = useState(false);
   const navigate = useNavigate();
   const form = useRef<HTMLFormElement>(null);
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   const onSubmit = async () => {
-    setResult("Sending....");
+    setSending(true);
+    setResult("Sending…");
     if (!form.current) {
-      setResult("Error: empty form.");
+      setResult("Empty form.");
+      setSending(false);
       return;
     }
     const formData = new FormData(form.current);
@@ -25,75 +35,96 @@ export default function Contact() {
     const data = await response.json();
 
     if (data.success) {
-      setResult("Form Submitted Successfully");
+      setResult("Got it.");
       form.current.reset();
       setTimeout(() => {
-        setResult("Redirecting...");
+        setResult("Heading home…");
       }, 1000);
       setTimeout(() => {
         navigate("/");
       }, 2000);
     } else {
-      console.log("Error", data);
       setResult(data.message);
+      setSending(false);
     }
   };
 
   return (
-    <motion.div
-      className="w-screen min-h-screen flex justify-center items-center "
+    <motion.main
+      id="main"
+      tabIndex={-1}
+      className="relative z-10 flex h-[100dvh] max-h-[100dvh] w-full max-w-full items-center justify-center overflow-hidden px-[var(--crt-gutter)] pb-[var(--crt-gutter-bottom)] pt-[var(--crt-gutter)] outline-none focus:ring-2 focus:ring-green focus:ring-offset-2 focus:ring-offset-blue"
       variants={contentVariants}
-      initial="initial"
+      initial={reduceMotion ? false : "initial"}
       animate="animate"
-      exit={{ opacity: 0 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
     >
-      <div className="w-[calc(100vw-6.8rem)] h-[calc(100vh-5rem)]   rounded-lg p-0 cursor-default z-0 flex justify-center items-center">
-        <img
-          src={Arrow}
-          alt=""
-          className="w-[2rem] absolute md:left-12 md:top-12 left-2 top-2 opacity-40 rotate-90 cursor-pointer hover:opacity-50"
-          onClick={() => {
-            navigate(-1);
-          }}
-        />
+      <div className="relative z-10 flex h-full min-h-0 w-full max-w-md cursor-default items-center justify-center">
+        <Link
+          to="/"
+          aria-label="Back"
+          className={`absolute left-0 top-0 inline-flex min-h-11 min-w-11 items-center justify-center border border-green px-3 text-green hover:bg-green hover:text-blue ${focusRing}`}
+          style={{ fontFamily: "DOS" }}
+        >
+          &lt;
+        </Link>
         <form
           onSubmit={(e) => {
             e.preventDefault();
             onSubmit();
           }}
           ref={form}
-          className="flex flex-col gap-5 w-full h-full py-[1rem] max-w-[500px] text-paragraph [&>*]:px-2 "
+          className="flex h-full min-h-0 w-full flex-col gap-3 overflow-y-auto py-14 text-[1.05rem] md:gap-4 md:py-8 md:text-lg"
+          style={{ fontFamily: "DOS" }}
         >
           <h1 className="m-0">Contact me</h1>
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            required
-            className="rounded-lg bg-[transparent] border-white border"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            required
-            className="rounded-lg bg-[transparent] border-white border"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            required
-            className="h-full rounded-lg bg-[transparent] border-white border"
-          ></textarea>
-          {result && <span className="text-paragraph">{result}</span>}
+          <label className="flex flex-col gap-2 text-green">
+            NAME:
+            <input
+              type="text"
+              name="name"
+              autoComplete="name"
+              placeholder="Hieu…"
+              required
+              className={field}
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-green">
+            MAIL:
+            <input
+              type="email"
+              name="email"
+              autoComplete="email"
+              spellCheck={false}
+              placeholder="vin028@ucsd.edu…"
+              required
+              className={field}
+            />
+          </label>
+          <label className="flex min-h-24 flex-1 flex-col gap-2 text-green">
+            MSG:
+            <textarea
+              name="message"
+              placeholder="What should I know…"
+              required
+              className={`${field} h-full min-h-24 py-2`}
+            ></textarea>
+          </label>
+          {result && (
+            <span className="text-green" aria-live="polite">
+              {result}
+            </span>
+          )}
           <button
             type="submit"
-            className="border border-green rounded-lg py-2 hover:bg-dark_green duration-200"
+            disabled={sending}
+            aria-busy={sending}
+            className={`min-h-12 border border-green py-2 text-green transition-colors duration-150 hover:bg-green hover:text-blue active:translate-y-px disabled:cursor-not-allowed disabled:opacity-70 ${focusRing}`}
           >
-            Submit Form
+            [ SEND ]
           </button>
         </form>
       </div>
-    </motion.div>
+    </motion.main>
   );
 }

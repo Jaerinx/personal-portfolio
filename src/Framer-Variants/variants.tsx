@@ -51,14 +51,13 @@ export const contentVariants = {
 
 export const barVariants = {
   initial: {
-    height: 0,
-    overflow: "hidden",
+    scaleY: 0,
     transition: {
       duration: 0.1
     }
   },
   animate: {
-    height: [0, "100%"],
+    scaleY: 1,
     transition: {
       duration: 0.1
     }
@@ -67,12 +66,10 @@ export const barVariants = {
 
 export const textVariants = {
   initial: {
-    width: 0,
-    overflow: "hidden"
+    clipPath: "inset(0 100% 0 0)"
   },
   animate: {
-    width: "100%",
-    overflow: "hidden",
+    clipPath: "inset(0 0% 0 0)",
     transition: {
       duration: 0.5
     }

@@ -2,17 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  color-scheme: dark;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(130, 192, 92, 0.25);
+}
+
 @font-face {
   font-family: "DOS";
   src: url("/Perfect DOS VGA 437 Win.ttf");
+  font-display: swap;
 }
 @font-face {
   font-family: "Source Code Pro";
   src: url("/SourceCodePro_VariableFont_wght.ttf");
+  font-display: swap;
 }
 :root {
+  --crt-bezel: 8px;
+  --crt-chin: 8px;
+  --crt-well: 0px;
+  --crt-gutter: calc(var(--crt-bezel) + 14px);
+  --crt-gutter-bottom: calc(var(--crt-chin) + 14px);
   font-family: "Source Code Pro";
-  letter-spacing: -1px;
+  letter-spacing: 0;
   h1 {
     font-family: "DOS";
     color: #82c05c;
@@ -52,7 +68,31 @@
 }
 @media only screen and (min-width: 768px) {
   :root {
+    --crt-bezel: 2rem;
+    --crt-chin: 2rem;
+    --crt-well: 14px;
+    --crt-gutter: calc(var(--crt-bezel) + var(--crt-well) + 10px);
+    --crt-gutter-bottom: calc(var(--crt-chin) + 12px);
     text-align: justify;
-    letter-spacing: -3px;
+    letter-spacing: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  :root {
+    --crt-chin: 3.5rem;
+    --crt-well: 18px;
+    --crt-gutter: calc(var(--crt-bezel) + var(--crt-well) + 12px);
+    --crt-gutter-bottom: calc(var(--crt-chin) + 14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

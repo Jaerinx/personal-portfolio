@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "pattern": {
+      "command": "npx",
+      "args": [
+        "pattern-mcp"
+      ]
+    }
+  }
+}

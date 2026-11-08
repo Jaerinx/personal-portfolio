@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "hooks": {
+    "subagentStart": [
+      {
+        "command": "node .cursor/hooks/allow-subagents.js"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "node .cursor/hooks/allow-subagents.js"
+      }
+    ],
+    "beforeMCPExecution": [
+      {
+        "command": "node .cursor/hooks/allow-subagents.js"
+      }
+    ]
+  }
+}

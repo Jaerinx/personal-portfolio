@@ -1,32 +1,44 @@
 import { motion } from "framer-motion";
 import arrow from "/Arrow.svg";
 import { Link } from "react-router-dom";
+
 const arrowVariants = {
   initial: {
-    y: "100vh"
+    y: 48,
+    opacity: 0
   },
   animate: {
     y: 0,
+    opacity: 1,
     transition: {
       type: "spring",
-      damping: 10,
-      stiffness: 50,
-      duration: 0.3,
-      delay: 1
+      damping: 12,
+      stiffness: 80,
+      delay: 0.15
     }
   },
   hover: {
-    scale: [1, 1.2, 1],
+    scale: [1, 1.12, 1],
     transition: {
       repeat: Infinity,
-      duration: 0.5,
-      delay: 0.1
+      duration: 0.55
     }
   }
 };
-export default function Arrow({ url }: { url: string }) {
+
+export default function Arrow({
+  url,
+  label = "about me"
+}: {
+  url: string;
+  label?: string;
+}) {
   return (
-    <Link to={url}>
+    <Link
+      to={url}
+      aria-label={label}
+      className="group mt-8 inline-flex min-h-12 items-center gap-3 pr-4 md:mt-10"
+    >
       <motion.img
         src={arrow}
         alt=""
@@ -34,8 +46,17 @@ export default function Arrow({ url }: { url: string }) {
         initial="initial"
         animate="animate"
         whileHover="hover"
-        className="w-[4rem] absolute bottom-20 left-[8rem] ml-[-2rem] cursor-pointer z-5"
+        className="w-10 cursor-pointer md:w-14"
       />
+      <motion.span
+        initial={{ opacity: 0, x: -8 }}
+        animate={{ opacity: 0.9, x: 0 }}
+        transition={{ delay: 0.35 }}
+        className="text-xl text-green md:text-2xl"
+        style={{ fontFamily: "DOS" }}
+      >
+        {label}
+      </motion.span>
     </Link>
   );
 }

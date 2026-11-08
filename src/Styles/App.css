@@ -1,4 +1,164 @@
 #root {
-  min-width: 100vw;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
+}
+
+#root h1.hero-name {
+  font-family: "DOS";
+  font-size: clamp(3.25rem, 2.1rem + 8vw, 8rem);
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-align: left;
+  color: #82c05c;
+  text-wrap: balance;
+  text-shadow:
+    0 0 4px rgba(130, 192, 92, 1),
+    0 0 8px rgba(130, 192, 92, 0.7),
+    0 0 28px rgba(130, 192, 92, 0.45);
+}
+
+.crt-glass-layer,
+.crt-stage {
+  --bezel: var(--crt-bezel);
+  --chin: var(--crt-chin);
+  --well: var(--crt-well);
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+}
+
+.crt-glass-layer {
+  z-index: 1;
+  perspective: 1400px;
+  perspective-origin: 50% 40%;
+}
+
+.crt-stage {
+  z-index: 20;
+}
+
+/* Match the pre-3D chrome: thick bottom chin is border-bottom */
+.crt-bezel-outer {
+  position: absolute;
+  inset: 0;
+  border-style: solid;
+  border-color: #b5b2a7;
+  border-width: var(--bezel);
+  border-bottom-width: var(--chin);
+  /* Square the chin so thick border-radius doesn't pull beige into the tube */
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.crt-bezel-lip {
+  position: absolute;
+  inset: 4px;
+  border: 3px solid #8f8b7e;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .crt-bezel-lip {
+    inset: 0.75rem;
+    border-width: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Original lip sat in the chin shelf; power nub paints above the rule */
+  .crt-bezel-lip {
+    bottom: 1.35rem;
+  }
+}
+
+.crt-well {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.crt-well-top {
+  top: var(--bezel);
+  left: calc(var(--bezel) + 2px);
+  right: calc(var(--bezel) + 2px);
+  height: var(--well);
+  transform-origin: top;
+  transform: rotateX(-42deg);
+  background: linear-gradient(#a7a396, #594a37 55%, #0c0a12);
+}
+
+.crt-glass {
+  --gx: 62%;
+  --gy: 28%;
+  position: absolute;
+  top: var(--bezel);
+  right: var(--bezel);
+  bottom: var(--chin);
+  left: var(--bezel);
+  border-radius: 2px;
+  background: radial-gradient(
+    ellipse 40% 26% at var(--gx) var(--gy),
+    rgba(235, 232, 255, 0.11),
+    transparent 55%
+  );
+}
+
+.crt-sweep {
+  position: absolute;
+  top: var(--bezel);
+  right: var(--bezel);
+  left: var(--bezel);
+  height: 16%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(130, 192, 92, 0.2) 45%,
+    transparent
+  );
+  animation: crt-sweep 0.7s ease-out 1;
+}
+
+@keyframes crt-sweep {
+  from {
+    transform: translateY(-30%);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateY(520%);
+    opacity: 0;
+  }
+}
+
+.crt-tube {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.crt-tube-face {
+  max-width: 100%;
+  transform: none;
+}
+
+@media (max-width: 767.98px) {
+  .crt-well {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .crt-tube {
+    perspective: 720px;
+    transform-style: preserve-3d;
+  }
+
+  .crt-tube-face {
+    transform: translateZ(8px) scale(0.985);
+    transform-style: preserve-3d;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-sweep {
+    display: none;
+  }
 }

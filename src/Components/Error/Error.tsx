@@ -12,14 +12,14 @@ export default function Error() {
   return (
     <TypeAnimation
       sequence={["", 2000, ".", 1000, "..", 1000, "...", 1000]}
-      className="absolute left-20 top-16"
+      className="absolute left-8 top-16 md:left-20"
       wrapper="div"
       speed={25}
       repeat={Infinity}
       cursor={false}
       style={{
         whiteSpace: "pre-line",
-        fontSize: "3vw",
+        fontSize: "clamp(1.5rem, 3vw, 3rem)",
         display: "inline-block",
         maxHeight: "fit-content"
       }}

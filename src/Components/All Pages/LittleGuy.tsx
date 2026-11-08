@@ -140,7 +140,7 @@ export default function LittleGuy({
 
   return (
     <motion.div
-      className="absolute w-32 h-32 bg-white rounded-t-full bottom-[3rem] overflow-hidden z-50"
+      className="absolute bottom-[3.5rem] right-32 z-50 h-32 w-32 overflow-hidden rounded-t-full bg-white"
       variants={bodyVariants}
       initial="initial"
       animate={off ? "moveLeft" : "animate"}

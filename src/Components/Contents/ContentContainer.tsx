@@ -1,7 +1,12 @@
-import { ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { Children, ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
+
+const shell =
+  "my-8 grid w-full grid-rows-[max-content_max-content] border border-green bg-blue text-[1.05rem] text-pretty md:text-paragraph";
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-blue";
+
 export default function ContentContainer({
   children,
   width = "50%",
@@ -20,38 +25,53 @@ export default function ContentContainer({
   to?: string;
 }) {
   const matches = useMediaQuery("(min-width: 1024px)");
-  const navigate = useNavigate();
-  return (
-    <div
-      className={`w-full grid grid-rows-[max-content_max-content] border-y-2 rounded-2xl border-[#000F2C] my-20 text-paragraph hover:scale-[0.99] duration-100 bg-[#000F2C] ${
-        link || to ? ` cursor-pointer` : ""
-      }`}
-      style={{
-        width: matches ? width : "100%",
-        marginRight: right_margin,
-        marginLeft: left_margin
-      }}
-      onClick={() => {
-        if (link) {
-          window.location.href = link;
-        }
-        if (to) {
-          navigate(to);
-        }
-      }}
-    >
+  const style = {
+    width: matches ? width : "100%",
+    marginRight: right_margin,
+    marginLeft: matches ? left_margin : undefined
+  };
+  const inner = (
+    <>
       <div
-        className={`border-b-2 border-white w-full mx-auto ${
-          left_margin ? "text-right" : "text-left"
+        className={`mx-auto w-full border-b border-green ${
+          matches && left_margin ? "text-right" : "text-left"
         }`}
       >
-        <div className="p-2 m-2">
-          <h1 className=" h-fit">{title}</h1>
+        <div className="m-2 p-2">
+          <h3 className="h-fit break-words text-pretty font-['DOS'] text-[clamp(1rem,2.6vw,1.7rem)] leading-snug text-green">
+            {title}
+          </h3>
         </div>
       </div>
-      <div className="p-5">
-        {children?.toString === null ? <></> : children}
-      </div>
-    </div>
+      {Children.count(children) > 0 ? (
+        <div className="p-4">{children}</div>
+      ) : null}
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={`${shell} ${focusRing}`} style={style}>
+        {inner}
+      </Link>
+    );
+  }
+  if (link) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        className={`${shell} ${focusRing}`}
+        style={style}
+      >
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <article className={shell} style={style}>
+      {inner}
+    </article>
   );
 }

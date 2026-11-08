@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "env PATTERN_PROJECT_ID='personal-web' npx --yes -p pattern-mcp pattern-check-gate-hook",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
