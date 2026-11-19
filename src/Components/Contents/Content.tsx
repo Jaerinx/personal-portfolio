@@ -21,7 +21,7 @@ import {
   CountUp,
   DecisionTrace,
   SplitMeter,
-  TinyMulti
+  TinyMulti,
 } from "../Viz/CrtInstruments";
 
 const information = [
@@ -29,10 +29,9 @@ const information = [
     title: "Tools",
     content: [
       <p className="font-['DOS'] text-green" style={{ fontFamily: "DOS" }}>
-        React · TypeScript · Python · HTML · CSS · JavaScript · Java · SQL ·
-        Supabase
-      </p>
-    ]
+        React · TypeScript · Python · HTML · CSS · JavaScript · Java · SQL · Supabase
+      </p>,
+    ],
   },
   {
     title: "Current Affiliations",
@@ -54,8 +53,8 @@ const information = [
           height={320}
           className="w-1/3"
         />
-      </div>
-    ]
+      </div>,
+    ],
   },
   {
     title: "Education",
@@ -76,9 +75,9 @@ const information = [
           height={400}
           className="w-1/5"
         />
-      </div>
-    ]
-  }
+      </div>,
+    ],
+  },
 ];
 
 export default function Content() {
@@ -133,29 +132,25 @@ export default function Content() {
             </figure>
             <div className="cursor-text text-pretty">
               <p>
-                Hi! My name is Hieu. Welcome to my corner of the internet. I
-                love making stuff and learning, and learning to make stuff. I'm
-                a Data Science and Applied Math student at UC San Diego. My
-                journey into web development began in 2017 when my club needed a
-                website built, and with neither any alternate options nor
-                adequate experience, I stepped up. Who knew having a deadline
-                and... mounting expectations would be the best motivator to
-                learn how to center a div.
+                Hi! My name is Hieu. Welcome to my corner of the internet. I love making stuff and
+                learning, and learning to make stuff. I'm a Data Science and Applied Math student at
+                UC San Diego. My journey into web development began in 2017 when my club needed a
+                website built, and with neither any alternate options nor adequate experience, I
+                stepped up. Who knew having a deadline and... mounting expectations would be the
+                best motivator to learn how to center a div.
               </p>
               <p className="mt-5">
-                Ever since, my interest in various subjects and fields has never
-                ended. From genetic algorithms, to wave function collapse, to
-                dynamic web apps, to deep learning on noisy physical signals — I
-                have been and will forever be looking to learn something new.
+                Ever since, my interest in various subjects and fields has never ended. From genetic
+                algorithms, to wave function collapse, to dynamic web apps, to deep learning on
+                noisy physical signals — I have been and will forever be looking to learn something
+                new.
               </p>
               <p className="mt-5">
-                These days that looks like keeping a portal up for 1,000+ users
-                across 50 orgs and cutting tescucsd.org LCP in half, poking at a
-                LoL win model until Decision Tree F1 0.62 became Random Forest
-                F1 0.85 on 150k rows, helping out in the UCSD ITS Office of the
-                CIO, and poking at fully-connected nets, U-Nets, WaveNet, and
-                RNNs to pull faint dark-matter signals out of noisy detector
-                data.
+                These days that looks like keeping a portal up for 1,000+ users across 50 orgs and
+                cutting tescucsd.org LCP in half, poking at a LoL win model until Decision Tree F1
+                0.62 became Random Forest F1 0.85 on 150k rows, helping out in the UCSD ITS Office
+                of the CIO, and poking at fully-connected nets, U-Nets, WaveNet, and RNNs to pull
+                faint dark-matter signals out of noisy detector data.
               </p>
             </div>
             <div className="clear-both" />
@@ -163,26 +158,26 @@ export default function Content() {
 
           <SectionHeader title="Experience" />
           <ContentContainer
-            title="TRITON ENGINEERING STUDENT COUNCIL | Tech Lead & Co-president | Sep 2024 – Present"
+            title="TRITON ENGINEERING STUDENT COUNCIL | Co-president | Sep 2024 – Present"
             width="75%"
           >
             <div className="space-y-4 p-2">
               <ul className="ml-5 list-disc p-5 text-white">
                 <li>
-                  I built the in-house events portal — memberships, attendance,
-                  bulletin, and a resume database (the 1,000+ / 50 orgs live on
-                  the project below)
+                  Organized and led UCSD’s largest annual engineering club fair, coordinating 60+
+                  engineering organizations for 500+ attendees
                 </li>
                 <li>
-                  I also helped run UCSD’s largest engineering club fair — 500+
-                  people, 60+ orgs
+                  Designed and developed a bespoke in-house Events Attendance portal for 50+ student
+                  organizations and 1,000+ users, with dynamic performance analytics and a resume
+                  database for companies and recruiters
                 </li>
               </ul>
               <TinyMulti
                 ariaLabel="UCSD engineering club fair, 500+ attendees, 60+ organizations"
                 cells={[
                   { value: 500, suffix: "+", label: "attendees" },
-                  { value: 60, suffix: "+", label: "orgs" }
+                  { value: 60, suffix: "+", label: "orgs" },
                 ]}
               />
             </div>
@@ -196,14 +191,16 @@ export default function Content() {
               <CountUp value={20} suffix="+" label="dashboards" />
               <ul className="list-disc p-5 text-white">
                 <li>
-                  Built the Service Owner Checklist so campus IT teams know who
-                  owns what
+                  Created frameworks and training for the Service Owner Checklist to improve campus
+                  IT accountability
                 </li>
                 <li>
-                  Put up 20+ ServiceNow dashboards for campus IT
+                  Created and managed 20+ ServiceNow dashboard visualizations and tracked metrics to
+                  measure service improvements
                 </li>
                 <li>
-                  Wrote process-review reports and helped plan Process Palooza
+                  Built process-review reports to deliver data-driven recommendations; standardized
+                  tools and coordinated outreach for Process Palooza planning
                 </li>
               </ul>
             </div>
@@ -215,8 +212,11 @@ export default function Content() {
           >
             <ul className="list-disc p-5 text-white">
               <li>
-                I built the student membership portal — a different one from
-                TESC’s — so club signups weren’t stuck in spreadsheets
+                Spearheaded the Student Membership Portal to replace spreadsheet-based club signups
+              </li>
+              <li>
+                Scaled infrastructure to support 50+ annual events for 1,000+ users while reducing
+                website and application latency and LCP
               </li>
             </ul>
           </ContentContainer>
@@ -233,9 +233,13 @@ export default function Content() {
               />
               <ul className="ml-5 list-disc text-white">
                 <li>
-                  Exploring neural denoising architectures for the discovery of
-                  dark matter — recovering faint physical signals from noisy
-                  detector data. Independent work; no lab affiliation.
+                  Investigating neural denoising for dark-matter discovery: recovering faint
+                  physical signals from noisy detector data (independent work; no lab affiliation)
+                </li>
+                <li>
+                  Designed and compared fully-connected, positional U-Net, WaveNet, and RNN
+                  architectures to isolate which models best reconstruct weak signals under detector
+                  noise
                 </li>
               </ul>
             </div>
@@ -251,17 +255,17 @@ export default function Content() {
             <div className="grid grid-rows-[max-content_1fr] gap-4 lg:grid-cols-[0.55fr_0.45fr]">
               <ul className="list-disc p-5 text-white">
                 <li>
-                  I built this so 50 clubs could share memberships, attendance,
-                  and a bulletin — 1,000+ users
+                  Developed a centralized portal for club memberships, event attendance, and
+                  announcements across 50+ engineering organizations and 1,000+ users
                 </li>
                 <li>
-                  Role-based access with separate views for members, club
-                  leaders, and the public — plus a bulletin board with event
-                  posting, RSVP tracking, and searchable listings
+                  Implemented role-based access with separate views for members, club leaders, and
+                  the public; built bulletin features for event posting, RSVP tracking, and
+                  searchable listings
                 </li>
                 <li>
-                  Student points tracking and club profile tools, running on
-                  Supabase’s free plan
+                  Led student points tracking and club profile tools, scaling on Supabase’s free
+                  plan to support 1,000+ users across 50+ orgs
                 </li>
               </ul>
               <CaptionedShot
@@ -284,7 +288,7 @@ export default function Content() {
                   ariaLabel="10,000+ 2022 pro matches, 150k rows"
                   cells={[
                     { value: 10000, suffix: "+", label: "matches" },
-                    { value: 150, suffix: "k", label: "rows" }
+                    { value: 150, suffix: "k", label: "rows" },
                   ]}
                 />
                 <DecisionTrace
@@ -294,13 +298,18 @@ export default function Content() {
                     "permutation: 25-min gold missingness",
                     "DT F1 0.62",
                     "tuned RF F1 0.85",
-                    "league-level fairness audit"
+                    "league-level fairness audit",
                   ]}
                 />
                 <ul className="ml-5 list-disc text-white">
                   <li>
-                    2022 pro matches from Oracle's Elixir; 25-minute gold, XP,
-                    CS, and KDA features
+                    Built a win-prediction pipeline on 10,000+ 2022 pro matches (150k rows) from
+                    Oracle’s Elixir using 25-minute gold, XP, CS, and KDA features
+                  </li>
+                  <li>
+                    Tested a first-dragon advantage hypothesis and handled 25-minute gold
+                    missingness via permutation; improved model quality from Decision Tree F1 0.62
+                    to tuned Random Forest F1 0.85, then audited league-level fairness
                   </li>
                 </ul>
               </div>
@@ -323,12 +332,14 @@ export default function Content() {
             <div className="grid grid-rows-[max-content_1fr] lg:grid-cols-[0.6fr_0.4fr]">
               <ul className="list-disc p-5 text-white">
                 <li>
-                  Vite HMR, lazy loading, and SEO work to halve LCP load times
+                  Redesigned tescucsd.org with Vite HMR, lazy loading, and SEO improvements, cutting
+                  Largest Contentful Paint by half
                 </li>
-                <li>Git workflows to keep the student engineering team in sync</li>
-                {media && (
-                  <li>Hover on the image for a surprise :) →</li>
-                )}
+                <li>
+                  Established Git workflows so the student engineering team could ship updates in
+                  sync without blocking releases
+                </li>
+                {media && <li>Hover on the image for a surprise :) →</li>}
               </ul>
               <figure>
                 <div className="relative h-fit overflow-hidden border border-green bg-blue p-2 lg:aspect-square lg:overflow-hidden">
@@ -356,13 +367,12 @@ export default function Content() {
             <div className="grid grid-rows-[max-content_1fr] lg:grid-cols-2">
               <ul className="ml-5 list-disc p-5 text-white">
                 <li>
-                  I built the coupon admin + student side on Firestore and
-                  Firebase Auth so recycling rewards stayed locked to the right
-                  accounts
+                  Built coupon admin and student flows on Firestore and Firebase Auth so recycling
+                  rewards stayed bound to the correct accounts
                 </li>
                 <li>
-                  Worked with the school VP to poke at a real recycling program
-                  instead of a toy demo
+                  Partnered with the school VP to pilot a live recycling rewards program rather than
+                  a standalone demo
                 </li>
               </ul>
               <CaptionedShot
@@ -381,12 +391,17 @@ export default function Content() {
             title="2-D TERRAIN GENERATOR AND PATH-FINDING SIMULATOR | Research Project | 2023"
           >
             <ul className="ml-5 list-disc p-5 text-white">
-              <li>Python sandbox for poking at pathfinding</li>
-              <li>Procedural 2-D terrain so the map is never the same twice</li>
-              <li>Visualizes A*, Dijkstra, BFS, DFS on the generated map</li>
               <li>
-                Tried genetic algorithms to see if the agents could get less
-                lost over generations
+                Built a Python sandbox to compare pathfinding algorithms on procedurally generated
+                2-D terrain
+              </li>
+              <li>
+                Visualized A*, Dijkstra, BFS, and DFS on changing maps to measure route quality
+                under varied layouts
+              </li>
+              <li>
+                Applied genetic algorithms across generations to improve agent navigation efficiency
+                on unseen maps
               </li>
             </ul>
           </ContentContainer>
@@ -397,10 +412,13 @@ export default function Content() {
           >
             <div className="grid grid-rows-[max-content_1fr] justify-between lg:grid-cols-[0.6fr_0.4fr]">
               <ul className="ml-5 list-disc p-5 text-white">
-                <li>React + Next + Tailwind sandbox</li>
                 <li>
-                  I poked at Wave Function Collapse and Model Synthesis until
-                  the tiles started looking like terrain instead of noise
+                  Designed and developed an interactive Next.js / Tailwind visualizer for Wave
+                  Function Collapse and Model Synthesis on 2-D terrain
+                </li>
+                <li>
+                  Used Next.js SSR to optimize algorithm and page performance, increasing overall
+                  simulation speed by ~50%
                 </li>
                 <li>Hover the shot for the surprise collapse :) →</li>
               </ul>

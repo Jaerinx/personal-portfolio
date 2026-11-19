@@ -5,51 +5,14 @@ export default function CrtChassis() {
   const glassRef = useRef<HTMLDivElement>(null);
   const sweepRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
-  const pointerUsed = useRef(false);
-  const idle = useRef(0);
 
   useEffect(() => {
     const glass = glassRef.current;
     if (!glass) return;
-
-    const setSpot = (x: number, y: number) => {
-      glass.style.setProperty("--gx", `${x}%`);
-      glass.style.setProperty("--gy", `${y}%`);
-    };
-
-    const onMove = (event: PointerEvent) => {
-      pointerUsed.current = true;
-      setSpot(
-        (event.clientX / window.innerWidth) * 100,
-        (event.clientY / window.innerHeight) * 100
-      );
-    };
-
-    window.addEventListener("pointermove", onMove, { passive: true });
-
-    if (reduceMotion) {
-      setSpot(62, 28);
-      return () => window.removeEventListener("pointermove", onMove);
-    }
-
-    let frame = 0;
-    const loop = () => {
-      if (!pointerUsed.current) {
-        idle.current += 0.008;
-        setSpot(
-          62 + 10 * Math.cos(idle.current),
-          28 + 8 * Math.sin(idle.current * 0.85)
-        );
-      }
-      frame = requestAnimationFrame(loop);
-    };
-    frame = requestAnimationFrame(loop);
-
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      cancelAnimationFrame(frame);
-    };
-  }, [reduceMotion]);
+    // Static CRT glare — no cursor follow
+    glass.style.setProperty("--gx", "62%");
+    glass.style.setProperty("--gy", "28%");
+  }, []);
 
   useEffect(() => {
     const sweep = sweepRef.current;
